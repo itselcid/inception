@@ -1,0 +1,2454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate 42 Inception Project Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+        }
+
+        .principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .principle {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .principle:hover {
+            transform: translateY(-5px);
+        }
+
+        .principle h3 {
+            color: #FFD700;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .principle p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .day-card {
+            background: white;
+            border-radius: 20px;
+            margin: 30px 0;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .day-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .day-number {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .day-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .objective {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .objective h3 {
+            margin-bottom: 10px;
+            color: #FFD700;
+        }
+
+        .day-content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .section-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .concept-explanation {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 20px;
+        }
+
+        .analogy {
+            background: #e8f2ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid #b3d9ff;
+        }
+
+        .analogy h4 {
+            color: #1e40af;
+            margin-bottom: 10px;
+        }
+
+        .best-resource {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .best-resource h4 {
+            margin-bottom: 10px;
+            color: #d1fae5;
+        }
+
+        .resource-link {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .resource-link a {
+            color: #d1fae5;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .resource-link a:hover {
+            text-decoration: underline;
+        }
+
+        .practical-section {
+            background: #fef3c7;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #f59e0b;
+        }
+
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-family: 'Consolas', 'Monaco', monospace;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .command {
+            background: #0f172a;
+            color: #22d3ee;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            margin: 10px 0;
+        }
+
+        .evaluation-section {
+            background: #fef2f2;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #ef4444;
+        }
+
+        .rule-box {
+            background: #fee2e2;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid #fecaca;
+        }
+
+        .rule-box h4 {
+            color: #dc2626;
+            margin-bottom: 10px;
+        }
+
+        .warning {
+            background: #fef3c7;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #fde68a;
+            margin: 15px 0;
+        }
+
+        .warning h4 {
+            color: #d97706;
+            margin-bottom: 10px;
+        }
+
+        .step-list {
+            counter-reset: step-counter;
+            padding-left: 0;
+        }
+
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 20px;
+            padding-left: 60px;
+            position: relative;
+            list-style: none;
+        }
+
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .toc {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .toc h2 {
+            color: white;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .toc-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .toc-item:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .toc-item h3 {
+            color: #FFD700;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .toc-item p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .evaluation-rules {
+            background: #fef2f2;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 2px solid #ef4444;
+        }
+
+        .evaluation-rules h2 {
+            color: #dc2626;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        .critical-rules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .critical-rule {
+            background: #fee2e2;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #fecaca;
+        }
+
+        .critical-rule h3 {
+            color: #dc2626;
+            margin-bottom: 10px;
+        }
+
+        .critical-rule p {
+            color: #991b1b;
+            font-size: 0.9rem;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .scroll-to-top:hover {
+            background: #5a67d8;
+            transform: translateY(-3px);
+        }
+
+        .scroll-to-top.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .day-title {
+                font-size: 1.5rem;
+            }
+            
+            .principles {
+                grid-template-columns: 1fr;
+            }
+            
+            .critical-rules {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 The Ultimate 42 Inception Project Guide</h1>
+            <p>From Zero to Hero: Master Docker, Nginx, and Database Administration in 10 Days</p>
+            <div class="principles">
+                <div class="principle">
+                    <h3>🎯 Assume Zero Knowledge</h3>
+                    <p>Every concept explained from scratch with analogies and simple language</p>
+                </div>
+                <div class="principle">
+                    <h3>📚 Curated Resources</h3>
+                    <p>Only the best tutorials, docs, and videos for each topic</p>
+                </div>
+                <div class="principle">
+                    <h3>✅ Evaluation-Focused</h3>
+                    <p>Every step designed to ensure flawless evaluation compliance</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="evaluation-rules">
+            <h2>🚨 CRITICAL EVALUATION RULES</h2>
+            <p style="text-align: center; color: #991b1b; font-size: 1.1rem; margin-bottom: 20px;">
+                These rules are NON-NEGOTIABLE. Violation = Automatic Failure
+            </p>
+            <div class="critical-rules">
+                <div class="critical-rule">
+                    <h3>🔒 Secrets Management</h3>
+                    <p>ALL credentials must be in .env file only. No secrets in any other file = Instant 0</p>
+                </div>
+                <div class="critical-rule">
+                    <h3>🏗️ File Structure</h3>
+                    <p>Makefile at root, all configs in srcs/ folder. Wrong structure = Failure</p>
+                </div>
+                <div class="critical-rule">
+                    <h3>🔄 Clean Restart</h3>
+                    <p>Must work after full Docker cleanup. Test this before submission!</p>
+                </div>
+                <div class="critical-rule">
+                    <h3>🌐 Network Rules</h3>
+                    <p>NO network_mode: host or links:. Must use custom network.</p>
+                </div>
+                <div class="critical-rule">
+                    <h3>🔐 HTTPS Only</h3>
+                    <p>Port 443 only. Port 80 must be blocked. TLS 1.2/1.3 required.</p>
+                </div>
+                <div class="critical-rule">
+                    <h3>👤 Admin Username</h3>
+                    <p>Cannot contain "admin" or "Admin" in any form. Be creative!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="toc">
+            <h2>📋 10-Day Curriculum Overview</h2>
+            <div class="toc-grid">
+                <div class="toc-item" onclick="scrollToDay(1)">
+                    <h3>Day 1: Foundation</h3>
+                    <p>Docker concepts, VMs vs containers, basic commands</p>
+                </div>
+                <div class="toc-item" onclick="scrollToDay(2)">
+                    <h3>Day 2: Dockerfiles</h3>
+                    <p>Creating custom images, best practices, security</p>
+                </div>
+                <div class="toc-item" onclick="scrollToDay(3)">
+                    <h3>Day 3: Docker Compose</h3>
+                    <p>Multi-container orchestration, networks, volumes</p>
+                </div>
+                <div class="toc-item" onclick="scrollToDay(4)">
+                    <h3>Day 4: Nginx Setup</h3>
+                    <p>Web server configuration, SSL/TLS, reverse proxy</p>
+                </div>
+                <div class="toc-item" onclick="scrollToDay(5)">
+                    <h3>Day 5: MariaDB</h3>
+                    <p>Database setup, users, persistence, security</p>
+                </div>
+                <div class="toc-item" onclick="scrollToDay(6)">
+                    <h3>Day 6: WordPress</h3>
+                    <p>PHP-FPM, WordPress installation, configuration</p>
+                </div>
+                <div class="toc-item" onclick="scrollToDay(7)">
+                    <h3>Day 7: Integration</h3>
+                    <p>Connecting all services, testing, debugging</p>
+                </div>
+                <div class="toc-item" onclick="scrollToDay(8)">
+                    <h3>Day 8: Security</h3>
+                    <p>Environment variables, SSL certificates, hardening</p>
+                </div>
+                <div class="toc-item" onclick="scrollToDay(9)">
+                    <h3>Day 9: Testing</h3>
+                    <p>Full system testing, persistence, edge cases</p>
+                </div>
+                <div class="toc-item" onclick="scrollToDay(10)">
+                    <h3>Day 10: Evaluation</h3>
+                    <p>Final checks, common mistakes, presentation tips</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-card" id="day1">
+            <div class="day-header">
+                <div class="day-number">Day 1</div>
+                <div class="day-title">Docker Fundamentals & Setup</div>
+                <div class="objective">
+                    <h3>Objective:</h3>
+                    <p>Understand what Docker is, why it exists, and set up your development environment</p>
+                </div>
+            </div>
+            <div class="day-content">
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🧠</span>
+                        <h2 class="section-title">The Concept: Containers vs Virtual Machines</h2>
+                    </div>
+                    
+                    <div class="concept-explanation">
+                        <h3>What is Docker?</h3>
+                        <p>Docker is a containerization platform that packages applications and their dependencies into lightweight, portable containers. Think of it as a way to create standardized shipping containers for software.</p>
+                        
+                        <div class="analogy">
+                            <h4>🏠 The Apartment Building Analogy</h4>
+                            <p><strong>Traditional Virtual Machines</strong> are like giving each tenant their own house with a full basement, electrical system, plumbing, and yard. Each "house" (VM) needs its own operating system, which uses lots of resources.</p>
+                            <p><strong>Docker Containers</strong> are like studio apartments in a building. They share the building's infrastructure (plumbing, electricity = kernel), but each apartment is completely isolated with its own kitchen, bathroom, and living space (application and dependencies).</p>
+                        </div>
+                        
+                        <h4>Key Differences:</h4>
+                        <ul>
+                            <li><strong>Resource Usage:</strong> Containers share the host OS kernel, using far less memory and CPU</li>
+                            <li><strong>Startup Time:</strong> Containers start in seconds, VMs take minutes</li>
+                            <li><strong>Portability:</strong> Containers run identically everywhere</li>
+                            <li><strong>Isolation:</strong> Both provide security isolation, but containers are more lightweight</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="best-resource">
+                        <h4>🎯 Best Resource for Theory</h4>
+                        <div class="resource-link">
+                            <a href="https://docs.docker.com/get-started/overview/" target="_blank">Docker Official Overview</a>
+                            <p><strong>Why it's best:</strong> Direct from Docker, comprehensive but beginner-friendly, always up-to-date</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🛠️</span>
+                        <h2 class="section-title">The Practical: Setting Up Your Environment</h2>
+                    </div>
+                    
+                    <div class="practical-section">
+                        <h3>Step-by-Step Setup</h3>
+                        
+                        <ol class="step-list">
+                            <li>
+                                <strong>Install Docker on your VM</strong>
+                                <div class="code-block">
+                                    <pre># Update package index
+sudo apt update
+
+# Install required packages
+sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release
+
+# Add Docker's official GPG key
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+# Add Docker repository
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Update package index again
+sudo apt update
+
+# Install Docker Engine
+sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Add your user to the docker group</strong>
+                                <div class="code-block">
+                                    <pre># Add current user to docker group
+sudo usermod -aG docker $USER
+
+# Logout and login again, or run:
+newgrp docker</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Test your installation</strong>
+                                <div class="code-block">
+                                    <pre># Test Docker installation
+docker run hello-world
+
+# Check Docker version
+docker --version
+docker-compose --version</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Create project directory structure</strong>
+                                <div class="code-block">
+                                    <pre># Create main project directory
+mkdir inception && cd inception
+
+# Create Makefile at root
+touch Makefile
+
+# Create srcs directory for all configuration files
+mkdir srcs
+cd srcs
+
+# Create .env file for environment variables
+touch .env
+
+# Create docker-compose.yml
+touch docker-compose.yml
+
+# Create requirements directory structure
+mkdir -p requirements/{nginx,wordpress,mariadb,tools}
+
+# Create subdirectories for each service
+mkdir -p requirements/nginx/{conf,tools}
+mkdir -p requirements/wordpress/{conf,tools}
+mkdir -p requirements/mariadb/{conf,tools}
+
+# Create Dockerfiles
+touch requirements/nginx/Dockerfile
+touch requirements/wordpress/Dockerfile
+touch requirements/mariadb/Dockerfile</pre>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    
+                    <div class="best-resource">
+                        <h4>🎯 Best Resource for Practice</h4>
+                        <div class="resource-link">
+                            <a href="https://docs.docker.com/engine/install/ubuntu/" target="_blank">Docker Installation Guide</a>
+                            <p><strong>Why it's best:</strong> Official documentation with step-by-step instructions for each OS</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">✅</span>
+                        <h2 class="section-title">Evaluation Compliance</h2>
+                    </div>
+                    
+                    <div class="evaluation-section">
+                        <div class="rule-box">
+                            <h4>📁 The Rule: File Structure</h4>
+                            <p>All configuration files must be in a <code>srcs/</code> folder. The Makefile must be at the root.</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🔍 Why It Exists</h4>
+                            <p>Standardized structure makes projects easier to evaluate and maintain. It separates build logic (Makefile) from configuration (srcs/).</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🎯 Action Plan</h4>
+                            <p>Your directory structure should look exactly like this:</p>
+                            <div class="code-block">
+                                <pre>inception/
+├── Makefile
+└── srcs/
+    ├── .env
+    ├── docker-compose.yml
+    └── requirements/
+        ├── nginx/
+        │   ├── Dockerfile
+        │   ├── conf/
+        │   └── tools/
+        ├── wordpress/
+        │   ├── Dockerfile
+        │   ├── conf/
+        │   └── tools/
+        └── mariadb/
+            ├── Dockerfile
+            ├── conf/
+            └── tools/</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-card" id="day2">
+            <div class="day-header">
+                <div class="day-number">Day 2</div>
+                <div class="day-title">Dockerfile Mastery</div>
+                <div class="objective">
+                    <h3>Objective:</h3>
+                    <p>Learn to create efficient, secure Dockerfiles that comply with all evaluation requirements</p>
+                </div>
+            </div>
+            <div class="day-content">
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🧠</span>
+                        <h2 class="section-title">The Concept: Dockerfiles as Recipes</h2>
+                    </div>
+                    
+                    <div class="concept-explanation">
+                        <h3>What is a Dockerfile?</h3>
+                        <p>A Dockerfile is a text file containing instructions to build a Docker image. It's like a recipe that tells Docker how to prepare your application environment.</p>
+                        
+                        <div class="analogy">
+                            <h4>👨‍🍳 The Recipe Analogy</h4>
+                            <p><strong>Dockerfile</strong> = Recipe instructions ("Add flour, mix for 2 minutes, bake at 350°F")</p>
+                            <p><strong>Docker Image</strong> = The finished cake sitting on your counter</p>
+                            <p><strong>Docker Container</strong> = A slice of cake you're actually eating</p>
+                            <p>Just like you can make multiple cake slices from one cake, you can run multiple containers from one image!</p>
+                        </div>
+                        
+                        <h4>Key Dockerfile Instructions:</h4>
+                        <ul>
+                            <li><strong>FROM:</strong> Base image (like "start with basic cake mix")</li>
+                            <li><strong>RUN:</strong> Execute commands during build (like "mix ingredients")</li>
+                            <li><strong>COPY:</strong> Copy files into image (like "add frosting")</li>
+                            <li><strong>EXPOSE:</strong> Document which ports the container uses</li>
+                            <li><strong>CMD:</strong> Default command when container starts</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="best-resource">
+                        <h4>🎯 Best Resource for Theory</h4>
+                        <div class="resource-link">
+                            <a href="https://docs.docker.com/engine/reference/builder/" target="_blank">Dockerfile Reference</a>
+                            <p><strong>Why it's best:</strong> Complete official reference with examples for every instruction</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🛠️</span>
+                        <h2 class="section-title">The Practical: Creating Your First Dockerfile</h2>
+                    </div>
+                    
+                    <div class="practical-section">
+                        <h3>Let's Create the Nginx Dockerfile</h3>
+                        
+                        <ol class="step-list">
+                            <li>
+                                <strong>Navigate to the nginx directory</strong>
+                                <div class="command">cd srcs/requirements/nginx</div>
+                            </li>
+                            
+                            <li>
+                                <strong>Create the Dockerfile</strong>
+                                <div class="code-block">
+                                    <pre># Use Debian bullseye (penultimate stable version)
+FROM debian:bullseye
+
+# Install nginx and openssl for SSL certificates
+RUN apt-get update && apt-get install -y \
+    nginx \
+    openssl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create directory for SSL certificates
+RUN mkdir -p /etc/nginx/ssl
+
+# Generate self-signed SSL certificate
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+    -keyout /etc/nginx/ssl/nginx.key \
+    -out /etc/nginx/ssl/nginx.crt \
+    -subj "/C=US/ST=State/L=City/O=Organization/CN=localhost"
+
+# Copy nginx configuration
+COPY conf/nginx.conf /etc/nginx/nginx.conf
+
+# Create directory for PID file
+RUN mkdir -p /var/run/nginx
+
+# Expose port 443 for HTTPS
+EXPOSE 443
+
+# Start nginx in foreground mode
+CMD ["nginx", "-g", "daemon off;"]</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Create nginx configuration</strong>
+                                <p>Create <code>conf/nginx.conf</code>:</p>
+                                <div class="code-block">
+                                    <pre>events {
+    worker_connections 1024;
+}
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    server {
+        listen 443 ssl;
+        server_name localhost;
+
+        ssl_certificate /etc/nginx/ssl/nginx.crt;
+        ssl_certificate_key /etc/nginx/ssl/nginx.key;
+        
+        ssl_protocols TLSv1.2 TLSv1.3;
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384;
+        ssl_prefer_server_ciphers off;
+
+        root /var/www/html;
+        index index.php index.html index.htm;
+
+        location / {
+            try_files $uri $uri/ /index.php?$query_string;
+        }
+
+        location ~ \.php$ {
+            fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            fastcgi_pass wordpress:9000;
+            fastcgi_index index.php;
+            include fastcgi_params;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            fastcgi_param PATH_INFO $fastcgi_path_info;
+        }
+    }
+}</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Test the Dockerfile</strong>
+                                <div class="code-block">
+                                    <pre># Build the image
+docker build -t nginx-test .
+
+# Run a container to test
+docker run -d -p 443:443 nginx-test
+
+# Check if it's running
+docker ps
+
+# Clean up
+docker stop $(docker ps -q)
+docker rm $(docker ps -aq)</pre>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    
+                    <div class="best-resource">
+                        <h4>🎯 Best Resource for Practice</h4>
+                        <div class="resource-link">
+                            <a href="https://docs.docker.com/develop/dev-best-practices/" target="_blank">Docker Best Practices</a>
+                            <p><strong>Why it's best:</strong> Official best practices for writing efficient, secure Dockerfiles</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">✅</span>
+                        <h2 class="section-title">Evaluation Compliance</h2>
+                    </div>
+                    
+                    <div class="evaluation-section">
+                        <div class="rule-box">
+                            <h4>📋 The Rule: Dockerfile Requirements</h4>
+                            <p>Each service must have its own Dockerfile. Dockerfiles cannot be empty. Must use penultimate stable version of Debian or Alpine.</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🚫 The Rule: No Docker Hub Images</h4>
+                            <p>Cannot pull ready-made images from Docker Hub. Must build from scratch using base OS images only.</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🔄 The Rule: No Infinite Loops</h4>
+                            <p>ENTRYPOINT or CMD cannot use background processes (&), interactive shells, or infinite loops (sleep infinity, tail -f).</p>
+                        </div>
+                        
+                        <div class="warning">
+                            <h4>⚠️ Common Mistakes to Avoid</h4>
+                            <ul>
+                                <li>Using <code>CMD ["tail", "-f", "/dev/null"]</code> - This is explicitly forbidden</li>
+                                <li>Using <code>FROM nginx:latest</code> - Cannot use pre-built images</li>
+                                <li>Using <code>CMD ["bash"]</code> - Cannot use interactive shells</li>
+                                <li>Empty Dockerfiles - Each must have actual content</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🎯 Action Plan</h4>
+                            <p>Your Dockerfile MUST:</p>
+                            <ul>
+                                <li>Start with <code>FROM debian:bullseye</code> or <code>FROM alpine:3.17</code></li>
+                                <li>Install and configure the service properly</li>
+                                <li>Use <code>CMD</code> or <code>ENTRYPOINT</code> that runs the service as a foreground process</li>
+                                <li>Never use prohibited commands like <code>tail -f</code> or <code>sleep infinity</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-card" id="day3">
+            <div class="day-header">
+                <div class="day-number">Day 3</div>
+                <div class="day-title">Docker Compose Orchestration</div>
+                <div class="objective">
+                    <h3>Objective:</h3>
+                    <p>Master Docker Compose to orchestrate multiple containers with proper networking and volumes</p>
+                </div>
+            </div>
+            <div class="day-content">
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🧠</span>
+                        <h2 class="section-title">The Concept: Docker Compose as a Conductor</h2>
+                    </div>
+                    
+                    <div class="concept-explanation">
+                        <h3>What is Docker Compose?</h3>
+                        <p>Docker Compose is a tool for defining and running multi-container Docker applications. It uses a YAML file to configure your application's services, networks, and volumes.</p>
+                        
+                        <div class="analogy">
+                            <h4>🎼 The Orchestra Analogy</h4>
+                            <p><strong>Docker Compose</strong> = The conductor who coordinates the entire orchestra</p>
+                            <p><strong>Services</strong> = Individual musicians (violins, drums, trumpets)</p>
+                            <p><strong>Networks</strong> = The acoustic space that allows musicians to hear each other</p>
+                            <p><strong>Volumes</strong> = Sheet music stands that persist between performances</p>
+                            <p>Just like a conductor ensures all musicians start together, play in harmony, and stop together, Docker Compose manages all your containers as one cohesive application.</p>
+                        </div>
+                        
+                        <h4>Key Docker Compose Concepts:</h4>
+                        <ul>
+                            <li><strong>Services:</strong> Define how containers are built and run</li>
+                            <li><strong>Networks:</strong> Allow containers to communicate securely</li>
+                            <li><strong>Volumes:</strong> Persist data between container restarts</li>
+                            <li><strong>Environment Variables:</strong> Configure services without hardcoding values</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="best-resource">
+                        <h4>🎯 Best Resource for Theory</h4>
+                        <div class="resource-link">
+                            <a href="https://docs.docker.com/compose/" target="_blank">Docker Compose Documentation</a>
+                            <p><strong>Why it's best:</strong> Comprehensive official guide with examples and best practices</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🛠️</span>
+                        <h2 class="section-title">The Practical: Creating docker-compose.yml</h2>
+                    </div>
+                    
+                    <div class="practical-section">
+                        <h3>Building Your docker-compose.yml</h3>
+                        
+                        <ol class="step-list">
+                            <li>
+                                <strong>Create the basic structure</strong>
+                                <p>In <code>srcs/docker-compose.yml</code>:</p>
+                                <div class="code-block">
+                                    <pre>version: '3.8'
+
+services:
+  nginx:
+    build: ./requirements/nginx
+    container_name: nginx
+    depends_on:
+      - wordpress
+    ports:
+      - "443:443"
+    volumes:
+      - wp-volume:/var/www/html
+    networks:
+      - inception
+    restart: on-failure
+
+  wordpress:
+    build: ./requirements/wordpress
+    container_name: wordpress
+    depends_on:
+      - mariadb
+    volumes:
+      - wp-volume:/var/www/html
+    networks:
+      - inception
+    restart: on-failure
+    environment:
+      WORDPRESS_DB_HOST: mariadb
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASS}
+
+  mariadb:
+    build: ./requirements/mariadb
+    container_name: mariadb
+    volumes:
+      - db-volume:/var/lib/mysql
+    networks:
+      - inception
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASS}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+
+volumes:
+  wp-volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/${USER}/data/wordpress
+
+  db-volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/${USER}/data/mariadb
+
+networks:
+  inception:
+    driver: bridge</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Configure environment variables</strong>
+                                <p>In <code>srcs/.env</code>:</p>
+                                <div class="code-block">
+                                    <pre># Domain configuration
+DOMAIN_NAME=login.42.fr
+
+# Database configuration
+DB_NAME=wordpress
+DB_USER=wpuser
+DB_PASS=secure_password_123
+DB_ROOT_PASS=root_password_456
+
+# WordPress configuration
+WP_URL=https://login.42.fr
+WP_TITLE=My Awesome Site
+WP_ADMIN_USER=siteowner
+WP_ADMIN_PASS=admin_password_789
+WP_ADMIN_EMAIL=admin@example.com
+WP_USER=regularuser
+WP_USER_PASS=user_password_101
+WP_USER_EMAIL=user@example.com
+
+# System user
+USER=your_login_here</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Create host directories</strong>
+                                <div class="code-block">
+                                    <pre># Create data directories on host
+sudo mkdir -p /home/$USER/data/wordpress
+sudo mkdir -p /home/$USER/data/mariadb
+
+# Set proper permissions
+sudo chown -R $USER:$USER /home/$USER/data</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Test the compose file</strong>
+                                <div class="code-block">
+                                    <pre># Validate the compose file
+docker-compose config
+
+# Check if services are properly defined
+docker-compose ps
+
+# Build all services
+docker-compose build</pre>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    
+                    <div class="best-resource">
+                        <h4>🎯 Best Resource for Practice</h4>
+                        <div class="resource-link">
+                            <a href="https://docs.docker.com/compose/compose-file/" target="_blank">Compose File Reference</a>
+                            <p><strong>Why it's best:</strong> Complete reference for all docker-compose.yml options and syntax</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">✅</span>
+                        <h2 class="section-title">Evaluation Compliance</h2>
+                    </div>
+                    
+                    <div class="evaluation-section">
+                        <div class="rule-box">
+                            <h4>🌐 The Rule: Network Configuration</h4>
+                            <p>Must NOT use <code>network_mode: host</code> or <code>links:</code>. Must have a <code>networks:</code> section with a custom network.</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🔄 The Rule: Restart Policy</h4>
+                            <p>Containers must restart in case of crash. Use <code>restart: on-failure</code> or <code>restart: always</code>.</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>📦 The Rule: Volume Mapping</h4>
+                            <p>Volumes must be available in <code>/home/login/data</code> folder on host machine.</p>
+                        </div>
+                        
+                        <div class="warning">
+                            <h4>⚠️ Common Mistakes to Avoid</h4>
+                            <ul>
+                                <li>Using <code>network_mode: host</code> - This is explicitly forbidden</li>
+                                <li>Using <code>links:</code> - Deprecated and forbidden</li>
+                                <li>Missing <code>networks:</code> section - Must define custom network</li>
+                                <li>Wrong volume paths - Must map to <code>/home/login/data</code></li>
+                                <li>No restart policy - Containers must restart on failure</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🎯 Action Plan</h4>
+                            <p>Your docker-compose.yml MUST have:</p>
+                            <ul>
+                                <li>Custom network defined in <code>networks:</code> section</li>
+                                <li>All services connected to this network</li>
+                                <li>Proper volume mapping to <code>/home/login/data</code></li>
+                                <li>Restart policy for all services</li>
+                                <li>No forbidden networking options</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-card" id="day4">
+            <div class="day-header">
+                <div class="day-number">Day 4</div>
+                <div class="day-title">Nginx & SSL Configuration</div>
+                <div class="objective">
+                    <h3>Objective:</h3>
+                    <p>Configure Nginx as a reverse proxy with SSL/TLS termination, ensuring only HTTPS access</p>
+                </div>
+            </div>
+            <div class="day-content">
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🧠</span>
+                        <h2 class="section-title">The Concept: Nginx as a Security Guard</h2>
+                    </div>
+                    
+                    <div class="concept-explanation">
+                        <h3>What is Nginx?</h3>
+                        <p>Nginx is a web server that can also act as a reverse proxy, load balancer, and HTTP cache. In our setup, it's the single entry point that handles all incoming requests and forwards them to the appropriate services.</p>
+                        
+                        <div class="analogy">
+                            <h4>🏢 The Security Guard Analogy</h4>
+                            <p><strong>Nginx</strong> = The security guard at the front desk of a building</p>
+                            <p><strong>SSL/TLS</strong> = The security checkpoint that verifies visitor credentials</p>
+                            <p><strong>Reverse Proxy</strong> = The guard who takes your request and walks it to the right department</p>
+                            <p><strong>Port 443</strong> = The only entrance to the building (HTTPS)</p>
+                            <p>Just like a security guard checks IDs, ensures only authorized people enter, and directs them to the right floor, Nginx verifies SSL certificates, ensures secure connections, and forwards requests to the correct service.</p>
+                        </div>
+                        
+                        <h4>Key Nginx Concepts:</h4>
+                        <ul>
+                            <li><strong>Reverse Proxy:</strong> Forwards client requests to backend servers</li>
+                            <li><strong>SSL Termination:</strong> Handles encryption/decryption of HTTPS traffic</li>
+                            <li><strong>Server Blocks:</strong> Virtual hosts that handle different domains/ports</li>
+                            <li><strong>FastCGI:</strong> Protocol for communicating with PHP applications</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="best-resource">
+                        <h4>🎯 Best Resource for Theory</h4>
+                        <div class="resource-link">
+                            <a href="https://nginx.org/en/docs/beginners_guide.html" target="_blank">Nginx Beginner's Guide</a>
+                            <p><strong>Why it's best:</strong> Official guide that explains concepts clearly with practical examples</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🛠️</span>
+                        <h2 class="section-title">The Practical: Complete Nginx Setup</h2>
+                    </div>
+                    
+                    <div class="practical-section">
+                        <h3>Building the Complete Nginx Service</h3>
+                        
+                        <ol class="step-list">
+                            <li>
+                                <strong>Update the Nginx Dockerfile</strong>
+                                <p>In <code>requirements/nginx/Dockerfile</code>:</p>
+                                <div class="code-block">
+                                    <pre>FROM debian:bullseye
+
+# Install nginx and openssl
+RUN apt-get update && apt-get install -y \
+    nginx \
+    openssl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create SSL directory
+RUN mkdir -p /etc/nginx/ssl
+
+# Copy SSL generation script
+COPY tools/ssl_setup.sh /tmp/ssl_setup.sh
+RUN chmod +x /tmp/ssl_setup.sh && /tmp/ssl_setup.sh
+
+# Copy nginx configuration
+COPY conf/nginx.conf /etc/nginx/nginx.conf
+
+# Create directory for PID file
+RUN mkdir -p /var/run/nginx
+
+# Create web directory
+RUN mkdir -p /var/www/html
+
+# Expose only port 443 (HTTPS)
+EXPOSE 443
+
+# Start nginx in foreground
+CMD ["nginx", "-g", "daemon off;"]</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Create SSL certificate generation script</strong>
+                                <p>In <code>requirements/nginx/tools/ssl_setup.sh</code>:</p>
+                                <div class="code-block">
+                                    <pre>#!/bin/bash
+
+# Generate SSL certificate
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+    -keyout /etc/nginx/ssl/nginx.key \
+    -out /etc/nginx/ssl/nginx.crt \
+    -subj "/C=FR/ST=Paris/L=Paris/O=42/CN=login.42.fr"
+
+# Set proper permissions
+chmod 600 /etc/nginx/ssl/nginx.key
+chmod 644 /etc/nginx/ssl/nginx.crt
+
+echo "SSL certificate generated successfully"</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Create comprehensive Nginx configuration</strong>
+                                <p>In <code>requirements/nginx/conf/nginx.conf</code>:</p>
+                                <div class="code-block">
+                                    <pre>user www-data;
+worker_processes auto;
+pid /var/run/nginx/nginx.pid;
+
+events {
+    worker_connections 1024;
+    use epoll;
+    multi_accept on;
+}
+
+http {
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+
+    # Security headers
+    add_header X-Frame-Options DENY;
+    add_header X-Content-Type-Options nosniff;
+    add_header X-XSS-Protection "1; mode=block";
+
+    # SSL configuration
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
+    ssl_prefer_server_ciphers off;
+    ssl_session_timeout 1d;
+    ssl_session_cache shared:SSL:50m;
+    ssl_stapling on;
+    ssl_stapling_verify on;
+
+    # Gzip compression
+    gzip on;
+    gzip_vary on;
+    gzip_proxied any;
+    gzip_comp_level 6;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+
+    # Main server block
+    server {
+        listen 443 ssl http2;
+        server_name login.42.fr;
+
+        ssl_certificate /etc/nginx/ssl/nginx.crt;
+        ssl_certificate_key /etc/nginx/ssl/nginx.key;
+
+        root /var/www/html;
+        index index.php index.html index.htm;
+
+        # Security: deny access to hidden files
+        location ~ /\. {
+            deny all;
+            access_log off;
+            log_not_found off;
+        }
+
+        # Main location block
+        location / {
+            try_files $uri $uri/ /index.php?$args;
+        }
+
+        # PHP-FPM processing
+        location ~ \.php$ {
+            try_files $uri =404;
+            fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            fastcgi_pass wordpress:9000;
+            fastcgi_index index.php;
+            include fastcgi_params;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            fastcgi_param PATH_INFO $fastcgi_path_info;
+            fastcgi_param HTTPS on;
+        }
+
+        # Static file caching
+        location ~* \.(css|js|png|jpg|jpeg|gif|ico|svg)$ {
+            expires 1y;
+            add_header Cache-Control "public, immutable";
+        }
+
+        # Security: deny access to sensitive files
+        location ~ /\.(ht|git|svn) {
+            deny all;
+            access_log off;
+            log_not_found off;
+        }
+    }
+}</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Test the Nginx configuration</strong>
+                                <div class="code-block">
+                                    <pre># Build and test nginx
+cd srcs/requirements/nginx
+docker build -t nginx-test .
+
+# Run container to test configuration
+docker run -d -p 443:443 nginx-test
+
+# Test SSL certificate
+curl -k https://localhost:443
+
+# Check nginx configuration
+docker exec -it $(docker ps -q) nginx -t</pre>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    
+                    <div class="best-resource">
+                        <h4>🎯 Best Resource for Practice</h4>
+                        <div class="resource-link">
+                            <a href="https://www.nginx.com/resources/wiki/start/topics/examples/full/" target="_blank">Nginx Configuration Examples</a>
+                            <p><strong>Why it's best:</strong> Real-world configuration examples with detailed explanations</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">✅</span>
+                        <h2 class="section-title">Evaluation Compliance</h2>
+                    </div>
+                    
+                    <div class="evaluation-section">
+                        <div class="rule-box">
+                            <h4>🔐 The Rule: HTTPS Only</h4>
+                            <p>Nginx must be the only entrypoint via port 443 only. TLSv1.2 or TLSv1.3 protocol required. Port 80 must be inaccessible.</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🚫 The Rule: No Port 80</h4>
+                            <p>Port 80 (HTTP) must be completely blocked. Only HTTPS (443) is allowed.</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🌐 The Rule: Domain Configuration</h4>
+                            <p>Must configure domain name to point to local IP address. Domain must be login.42.fr.</p>
+                        </div>
+                        
+                        <div class="warning">
+                            <h4>⚠️ Common Mistakes to Avoid</h4>
+                            <ul>
+                                <li>Exposing port 80 - Only 443 is allowed</li>
+                                <li>Using HTTP redirects from 80 to 443 - Port 80 must be completely blocked</li>
+                                <li>Using weak SSL protocols - Only TLSv1.2 and TLSv1.3</li>
+                                <li>Wrong domain name - Must be exactly login.42.fr</li>
+                                <li>Self-signed certificate errors - They're allowed but must be properly configured</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🎯 Action Plan</h4>
+                            <p>Configure your domain name:</p>
+                            <div class="code-block">
+                                <pre># Add to /etc/hosts on your host machine
+echo "127.0.0.1 login.42.fr" | sudo tee -a /etc/hosts
+
+# Replace 'login' with your actual 42 login name
+echo "127.0.0.1 youractuallogin.42.fr" | sudo tee -a /etc/hosts</pre>
+                            </div>
+                            <p>Test accessibility:</p>
+                            <div class="code-block">
+                                <pre># This should work
+curl -k https://login.42.fr
+
+# This should fail (connection refused)
+curl http://login.42.fr</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-card" id="day5">
+            <div class="day-header">
+                <div class="day-number">Day 5</div>
+                <div class="day-title">MariaDB Database Setup</div>
+                <div class="objective">
+                    <h3>Objective:</h3>
+                    <p>Set up a secure MariaDB database with proper user management and persistent storage</p>
+                </div>
+            </div>
+            <div class="day-content">
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🧠</span>
+                        <h2 class="section-title">The Concept: MariaDB as a Digital Library</h2>
+                    </div>
+                    
+                    <div class="concept-explanation">
+                        <h3>What is MariaDB?</h3>
+                        <p>MariaDB is a relational database management system (RDBMS) that stores and manages data in structured tables. It's a fork of MySQL that provides a reliable, performant database solution.</p>
+                        
+                        <div class="analogy">
+                            <h4>📚 The Digital Library Analogy</h4>
+                            <p><strong>MariaDB</strong> = The entire library building with its systems</p>
+                            <p><strong>Database</strong> = A specific section (like "Science Fiction")</p>
+                            <p><strong>Tables</strong> = Individual bookshelves within that section</p>
+                            <p><strong>Rows</strong> = Individual books on the shelves</p>
+                            <p><strong>Columns</strong> = Book attributes (title, author, ISBN, etc.)</p>
+                            <p><strong>Users</strong> = Library cards with different permission levels (admin, regular user)</p>
+                            <p><strong>Volumes</strong> = The physical storage building where books are actually kept</p>
+                        </div>
+                        
+                        <h4>Key Database Concepts:</h4>
+                        <ul>
+                            <li><strong>Root User:</strong> Database administrator with full permissions</li>
+                            <li><strong>Database:</strong> A collection of related tables</li>
+                            <li><strong>User Privileges:</strong> What actions each user can perform</li>
+                            <li><strong>Persistence:</strong> Data survives container restarts</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="best-resource">
+                        <h4>🎯 Best Resource for Theory</h4>
+                        <div class="resource-link">
+                            <a href="https://mariadb.org/documentation/" target="_blank">MariaDB Official Documentation</a>
+                            <p><strong>Why it's best:</strong> Complete official documentation with installation guides and best practices</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🛠️</span>
+                        <h2 class="section-title">The Practical: MariaDB Configuration</h2>
+                    </div>
+                    
+                    <div class="practical-section">
+                        <h3>Building the MariaDB Service</h3>
+                        
+                        <ol class="step-list">
+                            <li>
+                                <strong>Create the MariaDB Dockerfile</strong>
+                                <p>In <code>requirements/mariadb/Dockerfile</code>:</p>
+                                <div class="code-block">
+                                    <pre>FROM debian:bullseye
+
+# Install MariaDB server and client
+RUN apt-get update && apt-get install -y \
+    mariadb-server \
+    mariadb-client \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy configuration and entrypoint script
+COPY conf/my.cnf /etc/mysql/my.cnf
+COPY tools/db_setup.sh /usr/local/bin/db_setup.sh
+RUN chmod +x /usr/local/bin/db_setup.sh
+
+# Expose port 3306 (will only be accessible within the docker network)
+EXPOSE 3306
+
+# Entrypoint script will handle database initialization
+ENTRYPOINT ["/usr/local/bin/db_setup.sh"]
+
+# Command to run MariaDB daemon
+CMD ["mysqld", "--user=mysql"]</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Create MariaDB Configuration</strong>
+                                <p>In <code>requirements/mariadb/conf/my.cnf</code>. This tells MariaDB to listen on all network interfaces inside the container, which is crucial for Docker networking.</p>
+                                <div class="code-block">
+                                    <pre>[mysqld]
+user = mysql
+bind-address = 0.0.0.0</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Create the Database Setup Script</strong>
+                                <p>In <code>requirements/mariadb/tools/db_setup.sh</code>. This script is the key to automating database creation. It runs ONCE when the container starts for the first time.</p>
+                                <div class="code-block">
+                                    <pre>#!/bin/bash
+
+# Start MariaDB in the background
+mysqld_safe --datadir='/var/lib/mysql' &
+
+# Wait for MariaDB to start
+until mysqladmin ping -hlocalhost --silent; do
+    echo "Waiting for MariaDB to start..."
+    sleep 2
+done
+
+# Run security script and initialize database
+# The environment variables are passed from docker-compose.yml
+mysql -u root <<-EOF
+-- Set root password
+ALTER USER 'root'@'localhost' IDENTIFIED BY '${DB_ROOT_PASS}';
+-- Remove anonymous users
+DELETE FROM mysql.user WHERE User='';
+-- Disallow root login remotely
+DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
+-- Remove test database
+DROP DATABASE IF EXISTS test;
+DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
+-- Create the main database
+CREATE DATABASE IF NOT EXISTS ${DB_NAME};
+-- Create the WordPress user
+CREATE USER IF NOT EXISTS '${DB_USER}'@'%' IDENTIFIED BY '${DB_PASS}';
+-- Grant privileges to the WordPress user
+GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO '${DB_USER}'@'%';
+-- Apply changes
+FLUSH PRIVILEGES;
+EOF
+
+# Shut down the temporary MariaDB server
+mysqladmin -u root -p${DB_ROOT_PASS} shutdown
+
+echo "MariaDB initialized successfully."
+
+# Execute the CMD from the Dockerfile (starts mysqld in foreground)
+exec "$@"</pre>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    
+                    <div class="best-resource">
+                        <h4>🎯 Best Resource for Practice</h4>
+                        <div class="resource-link">
+                            <a href="https://hub.docker.com/_/mariadb" target="_blank">Official MariaDB Docker Hub Page</a>
+                            <p><strong>Why it's best:</strong> Even though we can't PULL the image, this page is the gold standard for understanding how to configure MariaDB with Docker, especially regarding environment variables and initialization scripts.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">✅</span>
+                        <h2 class="section-title">Evaluation Compliance</h2>
+                    </div>
+                    
+                    <div class="evaluation-section">
+                        <div class="rule-box">
+                            <h4>📦 The Rule: Separate Container & No Nginx</h4>
+                            <p>MariaDB must be in its own Dockerfile, and that file must not contain Nginx.</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>💾 The Rule: Persistent Volume</h4>
+                            <p>Must use a volume that maps to <code>/home/login/data/mariadb</code> on the host. The database must survive container restarts.</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🌱 The Rule: Database Not Empty</h4>
+                            <p>The database must not be empty after setup. It must contain the WordPress database and users.</p>
+                        </div>
+                        
+                        <div class="warning">
+                            <h4>⚠️ Common Mistakes to Avoid</h4>
+                            <ul>
+                                <li>Running initialization SQL on every start. The entrypoint script should check if the database already exists.</li>
+                                <li>Incorrect volume mapping, causing data loss on restart.</li>
+                                <li>Forgetting to grant privileges to the WordPress user.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🎯 Action Plan</h4>
+                            <p>Your <code>docker-compose.yml</code> correctly sets up the volume:</p>
+                            <div class="code-block">
+                                <pre>  db-volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/${USER}/data/mariadb</pre>
+                            </div>
+                            <p>Your entrypoint script (<code>db_setup.sh</code>) creates the database and users, fulfilling the "not empty" requirement. The <code>CREATE DATABASE IF NOT EXISTS</code> command is crucial for ensuring the script doesn't error on subsequent runs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-card" id="day6">
+            <div class="day-header">
+                <div class="day-number">Day 6</div>
+                <div class="day-title">WordPress & PHP-FPM Setup</div>
+                <div class="objective">
+                    <h3>Objective:</h3>
+                    <p>Set up WordPress with PHP-FPM, install it automatically, and connect it to Nginx and MariaDB</p>
+                </div>
+            </div>
+            <div class="day-content">
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🧠</span>
+                        <h2 class="section-title">The Concept: PHP-FPM as the Application Chef</h2>
+                    </div>
+                    
+                    <div class="concept-explanation">
+                        <h3>What is PHP-FPM?</h3>
+                        <p>PHP-FPM (FastCGI Process Manager) is an advanced processor for PHP. Nginx itself cannot execute PHP code. It needs to pass the request to something that can. PHP-FPM listens for these requests, executes the PHP scripts, and sends the result (HTML) back to Nginx.</p>
+                        
+                        <div class="analogy">
+                            <h4>👨‍🍳 The Restaurant Analogy</h4>
+                            <p><strong>Nginx</strong> = The friendly waiter at the front of the restaurant. They take customer orders (HTTP requests) and handle simple tasks like serving drinks (static files like CSS/JS).</p>
+                            <p><strong>PHP-FPM</strong> = The expert chef in the kitchen. When a customer orders a complex dish (a dynamic WordPress page), the waiter (Nginx) passes the order to the chef (PHP-FPM) via a specific window (port 9000). The chef cooks the meal (executes PHP, queries the database), and hands the finished plate (HTML) back to the waiter, who then serves it to the customer.</p>
+                            <p>They are separate but work together. The waiter doesn't know how to cook, and the chef never talks directly to the customers.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="best-resource">
+                        <h4>🎯 Best Resource for Theory</h4>
+                        <div class="resource-link">
+                            <a href="https://www.php.net/manual/en/install.fpm.php" target="_blank">PHP-FPM Official Documentation</a>
+                            <p><strong>Why it's best:</strong> The official source provides the most accurate, if dense, information about what FPM is and how it's configured.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🛠️</span>
+                        <h2 class="section-title">The Practical: WordPress Configuration</h2>
+                    </div>
+                    
+                    <div class="practical-section">
+                        <h3>Building the WordPress Service</h3>
+                        
+                        <ol class="step-list">
+                            <li>
+                                <strong>Create the WordPress Dockerfile</strong>
+                                <p>In <code>requirements/wordpress/Dockerfile</code>:</p>
+                                <div class="code-block">
+                                    <pre>FROM debian:bullseye
+
+# Install necessary packages: PHP-FPM, MariaDB client, curl, and wp-cli requirements
+RUN apt-get update && apt-get install -y \
+    php7.4-fpm \
+    php7.4-mysql \
+    mariadb-client \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Download and install the WordPress Command Line Interface (wp-cli)
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+    && chmod +x wp-cli.phar \
+    && mv wp-cli.phar /usr/local/bin/wp
+
+# Create web root directory
+RUN mkdir -p /var/www/html
+
+# Copy configuration and entrypoint script
+COPY conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
+COPY tools/wp_setup.sh /usr/local/bin/wp_setup.sh
+RUN chmod +x /usr/local/bin/wp_setup.sh
+
+# Change ownership of web root to the user that PHP-FPM runs as
+RUN chown -R www-data:www-data /var/www/html
+
+# Expose port 9000 for PHP-FPM
+EXPOSE 9000
+
+# Entrypoint script will handle WordPress installation
+ENTRYPOINT ["/usr/local/bin/wp_setup.sh"]
+
+# Command to run PHP-FPM in the foreground
+CMD ["php-fpm7.4", "-F"]</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Configure PHP-FPM</strong>
+                                <p>In <code>requirements/wordpress/conf/www.conf</code>. This tells PHP-FPM to listen for requests from any container on the network on port 9000.</p>
+                                <div class="code-block">
+                                    <pre>[www]
+user = www-data
+group = www-data
+listen = 0.0.0.0:9000
+pm = dynamic
+pm.max_children = 5
+pm.start_servers = 2
+pm.min_spare_servers = 1
+pm.max_spare_servers = 3</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Create the WordPress Setup Script</strong>
+                                <p>In <code>requirements/wordpress/tools/wp_setup.sh</code>. This is the magic script that uses wp-cli to automate the entire WordPress installation.</p>
+                                <div class="code-block">
+                                    <pre>#!/bin/bash
+
+# Wait for MariaDB to be ready
+until mysqladmin ping -h mariadb --user=${DB_USER} --password=${DB_PASS} --silent; do
+    echo "Waiting for database connection..."
+    sleep 2
+done
+
+# If wp-config.php doesn't exist, it means WordPress is not installed yet
+if [ ! -f "/var/www/html/wp-config.php" ]; then
+    echo "WordPress not found. Installing..."
+    
+    # Change to the web root
+    cd /var/www/html
+
+    # Download WordPress core files
+    wp core download --allow-root
+
+    # Create wp-config.php with database credentials
+    wp config create \
+        --dbname=${DB_NAME} \
+        --dbuser=${DB_USER} \
+        --dbpass=${DB_PASS} \
+        --dbhost=mariadb \
+        --allow-root
+
+    # Install WordPress, creating the admin and a second user
+    # Note the admin user CANNOT contain "admin"
+    wp core install \
+        --url=${WP_URL} \
+        --title="${WP_TITLE}" \
+        --admin_user=${WP_ADMIN_USER} \
+        --admin_password=${WP_ADMIN_PASS} \
+        --admin_email=${WP_ADMIN_EMAIL} \
+        --allow-root
+
+    # Create a second, non-admin user
+    wp user create \
+        ${WP_USER} \
+        ${WP_USER_EMAIL} \
+        --role=author \
+        --user_pass=${WP_USER_PASS} \
+        --allow-root
+
+    echo "WordPress installed successfully."
+else
+    echo "WordPress is already installed."
+fi
+
+# Execute the CMD from the Dockerfile (starts php-fpm in foreground)
+exec "$@"</pre>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    
+                    <div class="best-resource">
+                        <h4>🎯 Best Resource for Practice</h4>
+                        <div class="resource-link">
+                            <a href="https://developer.wordpress.org/cli/commands/" target="_blank">WP-CLI Command Reference</a>
+                            <p><strong>Why it's best:</strong> This is the official documentation for the tool we're using. It's the ultimate reference for automating every aspect of WordPress, which is a critical skill for this project.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">✅</span>
+                        <h2 class="section-title">Evaluation Compliance</h2>
+                    </div>
+                    
+                    <div class="evaluation-section">
+                        <div class="rule-box">
+                            <h4>📦 The Rule: Separate Container & No Nginx</h4>
+                            <p>WordPress must be in its own Dockerfile, and that file must not contain Nginx.</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>💾 The Rule: Persistent Volume</h4>
+                            <p>Must use a volume that maps to <code>/home/login/data/wordpress</code> on the host. Changes made in the admin dashboard must be visible on the site.</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>👤 The Rule: Forbidden Admin Username</h4>
+                            <p>The admin username must NOT contain "admin" or "Admin".</p>
+                        </div>
+                        
+                        <div class="warning">
+                            <h4>⚠️ Common Mistakes to Avoid</h4>
+                            <ul>
+                                <li>Naming your admin user something like 'my-admin' or 'superadmin'. The rule applies to any variation.</li>
+                                <li>Incorrectly setting up wp-config.php, leading to a "Database Connection Error".</li>
+                                <li>Forgetting to give PHP-FPM's user (`www-data`) ownership of `/var/www/html`, which prevents WordPress from managing files.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🎯 Action Plan</h4>
+                            <p>In your <code>srcs/.env</code> file, ensure your admin user is compliant:</p>
+                            <div class="code-block">
+                                <pre># GOOD: Does not contain "admin"
+WP_ADMIN_USER=siteowner
+
+# BAD: Contains "admin", will cause failure
+# WP_ADMIN_USER=myadmin</pre>
+                            </div>
+                            <p>The shared volume between Nginx and WordPress ensures that when you edit a page (which changes PHP files), Nginx can immediately serve the updated content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-card" id="day7">
+            <div class="day-header">
+                <div class="day-number">Day 7</div>
+                <div class="day-title">Integration & The Makefile</div>
+                <div class="objective">
+                    <h3>Objective:</h3>
+                    <p>Bring all services to life with a single command using a Makefile and ensure they work together</p>
+                </div>
+            </div>
+            <div class="day-content">
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🧠</span>
+                        <h2 class="section-title">The Concept: Makefile as the Master Controller</h2>
+                    </div>
+                    
+                    <div class="concept-explanation">
+                        <h3>What is a Makefile?</h3>
+                        <p>A Makefile is a script that contains a set of rules and commands to automate common tasks, especially for building and managing software projects. In our case, it's the master control panel for our entire Docker infrastructure.</p>
+                        
+                        <div class="analogy">
+                            <h4>🚀 The Mission Control Analogy</h4>
+                            <p><strong>Makefile</strong> = The main console at Mission Control with the big red buttons.</p>
+                            <p><strong>`make up`</strong> = The "Launch" button. It runs through the pre-flight checks (`docker-compose build`), starts all the engines (`docker-compose up`), and gets the rocket (your application) off the ground.</p>
+                            <p><strong>`make down`</strong> = The "Shutdown" button. It safely powers down all systems without destroying them.</p>
+                            <p><strong>`make fclean`</strong> = The "Self-Destruct" button. It completely obliterates every trace of the previous mission (containers, images, volumes, networks), preparing for a brand new, clean launch. This is the most critical command for testing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="best-resource">
+                        <h4>🎯 Best Resource for Theory</h4>
+                        <div class="resource-link">
+                            <a href="https://makefiletutorial.com/" target="_blank">Makefile Tutorial</a>
+                            <p><strong>Why it's best:</strong> This is a fantastic, interactive tutorial that explains Makefiles from the ground up. While our Makefile is simple, understanding the core concepts of targets, prerequisites, and recipes is a valuable skill.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🛠️</span>
+                        <h2 class="section-title">The Practical: Writing the Makefile</h2>
+                    </div>
+                    
+                    <div class="practical-section">
+                        <h3>Creating Your Project Makefile</h3>
+                        
+                        <ol class="step-list">
+                            <li>
+                                <strong>Create the Makefile at the root of your project</strong>
+                                <p>This file should be named <code>Makefile</code> and be in the `inception/` directory, NOT `inception/srcs/`.</p>
+                                <div class="code-block">
+                                    <pre># Define the path to your docker-compose file
+COMPOSE_FILE = srcs/docker-compose.yml
+
+# Default target, runs when you just type 'make'
+all: up
+
+# Build and start containers in detached mode
+up:
+	@docker-compose -f $(COMPOSE_FILE) up --build -d
+
+# Stop containers
+down:
+	@docker-compose -f $(COMPOSE_FILE) down
+
+# Stop containers and remove volumes
+clean:
+	@docker-compose -f $(COMPOSE_FILE) down -v
+
+# The ultimate cleanup: stop containers, remove EVERYTHING
+fclean:
+	@docker-compose -f $(COMPOSE_FILE) down -v --rmi all --remove-orphans
+	@sudo rm -rf /home/$(USER)/data/wordpress/*
+	@sudo rm -rf /home/$(USER)/data/mariadb/*
+	@echo "All clean!"
+
+# Restart containers
+re: fclean all
+
+# Display logs for all services
+logs:
+	@docker-compose -f $(COMPOSE_FILE) logs -f
+
+# Phony targets are ones that don't represent actual files
+.PHONY: all up down clean fclean re logs</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Understand the commands</strong>
+                                <ul>
+                                    <li><strong>`make` or `make all` or `make up`</strong>: Builds your images if they don't exist or if Dockerfiles have changed, and starts all services. `-d` runs them in the background.</li>
+                                    <li><strong>`make down`</strong>: Stops and removes the containers but leaves the volumes and images.</li>
+                                    <li><strong>`make clean`</strong>: Does the same as `down` but also removes the named volumes (`wp-volume`, `db-volume`). Your host directory data will remain.</li>
+                                    <li><strong>`make fclean`</strong>: This is the critical one for evaluation. It stops containers, removes them, removes all images (`--rmi all`), removes the volumes, and also WIPES the data from your host directories. After running this, your project is back to a pristine state.</li>
+                                    <li><strong>`make re`</strong>: A shortcut for `fclean` followed by `all`. Useful for testing a completely fresh build.</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">✅</span>
+                        <h2 class="section-title">Evaluation Compliance</h2>
+                    </div>
+                    
+                    <div class="evaluation-section">
+                        <div class="rule-box">
+                            <h4>🏗️ The Rule: File Structure</h4>
+                            <p>The Makefile MUST be at the root of the project directory.</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🚀 The Rule: Makefile Execution</h4>
+                            <p>The Makefile must set up the entire application, which means it has to call your `docker-compose.yml` file.</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🧹 The Rule: Clean Restart</h4>
+                            <p>The project must work perfectly after running a full cleanup. Your `fclean` rule is designed to simulate the evaluator's own cleanup script.</p>
+                        </div>
+                        
+                        <div class="warning">
+                            <h4>⚠️ Common Mistakes to Avoid</h4>
+                            <ul>
+                                <li>Placing the Makefile inside the `srcs/` directory.</li>
+                                <li>Hardcoding paths or commands instead of using variables.</li>
+                                <li>Having an `fclean` rule that doesn't completely clean everything (especially the host volume directories).</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🎯 Action Plan</h4>
+                            <p>Your directory structure must be correct:</p>
+                            <div class="code-block">
+                                <pre>inception/
+├── Makefile  &lt;-- HERE
+└── srcs/
+    └── docker-compose.yml</pre>
+                            </div>
+                            <p>The provided Makefile code satisfies all requirements. The `@` symbol before commands simply prevents `make` from printing the command itself to the terminal, making the output cleaner.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-card" id="day8">
+            <div class="day-header">
+                <div class="day-number">Day 8</div>
+                <div class="day-title">Security & Secrets Management</div>
+                <div class="objective">
+                    <h3>Objective:</h3>
+                    <p>Secure the application by properly managing all secrets and credentials using a .env file</p>
+                </div>
+            </div>
+            <div class="day-content">
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🧠</span>
+                        <h2 class="section-title">The Concept: .env as a Safe Deposit Box</h2>
+                    </div>
+                    
+                    <div class="concept-explanation">
+                        <h3>What is a .env file?</h3>
+                        <p>A `.env` file is a simple text file used to store environment-specific variables, such as database passwords, API keys, or other secrets. Docker Compose can automatically read this file and make the variables available to your containers, without you ever having to write the secrets directly into your configuration files.</p>
+                        
+                        <div class="analogy">
+                            <h4>🏦 The Safe Deposit Box Analogy</h4>
+                            <p><strong>Your Code (docker-compose.yml, Dockerfiles)</strong> = The public blueprint for a bank vault. Anyone can see it, and it shows the structure, but it doesn't contain the combination.</p>
+                            <p><strong>The `.env` file</strong> = A private, sealed envelope containing the secret combination to the vault. This envelope is kept in a secure location (your local machine) and is NEVER shared publicly (committed to Git).</p>
+                            <p><strong>Docker Compose</strong> = The bank manager. When you ask them to open the vault (`make up`), they privately take the combination from the sealed envelope (`.env`) and use it to configure the vault's lock (your containers' environment variables). The blueprint itself remains unchanged and public.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="best-resource">
+                        <h4>🎯 Best Resource for Theory</h4>
+                        <div class="resource-link">
+                            <a href="https://docs.docker.com/compose/environment-variables/" target="_blank">Docker Compose Environment Variables Guide</a>
+                            <p><strong>Why it's best:</strong> This official documentation clearly explains the different ways to handle environment variables in Compose, with a specific focus on using `.env` files. It's the definitive guide.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🛠️</span>
+                        <h2 class="section-title">The Practical: Implementing Secure Secrets</h2>
+                    </div>
+                    
+                    <div class="practical-section">
+                        <h3>Finalizing Your .env and .gitignore</h3>
+                        
+                        <ol class="step-list">
+                            <li>
+                                <strong>Review your `srcs/docker-compose.yml`</strong>
+                                <p>Notice how all sensitive values are replaced with `${VARIABLE_NAME}`. This tells Docker Compose to look for that variable.</p>
+                                <div class="code-block">
+                                    <pre>  mariadb:
+    ...
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASS}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+  
+  wordpress:
+    ...
+    environment:
+      WORDPRESS_DB_HOST: mariadb
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASS}
+</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Review your `srcs/.env` file</strong>
+                                <p>This is where the actual values are stored. Docker Compose automatically finds and reads this file if it's in the same directory or a parent directory.</p>
+                                <div class="code-block">
+                                    <pre># File: srcs/.env
+# --- IMPORTANT ---
+# This file should NEVER be committed to Git.
+
+DB_NAME=wordpress
+DB_USER=site_manager
+DB_PASS=a_very_secure_and_random_password
+DB_ROOT_PASS=another_super_secret_password
+
+WP_ADMIN_USER=the_owner
+# etc...
+</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Create a `.gitignore` file</strong>
+                                <p>This is the most critical step to prevent accidentally publishing your secrets. Create a file named `.gitignore` at the ROOT of your project (`inception/.gitignore`).</p>
+                                <div class="code-block">
+                                    <pre># File: .gitignore
+
+# Ignore the environment file containing secrets
+srcs/.env
+
+# Ignore host data directories
+data/
+
+# You can also add other common ignore patterns
+*.log
+.DS_Store
+</pre>
+                                </div>
+                                <p>Now, `git` will completely ignore your `.env` file, keeping your secrets safe on your local machine.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">✅</span>
+                        <h2 class="section-title">Evaluation Compliance</h2>
+                    </div>
+                    
+                    <div class="evaluation-section">
+                        <div class="rule-box">
+                            <h4>🔒 The Rule: Secrets Management</h4>
+                            <p>ALL credentials, API keys, and environment variables MUST be in a .env file. No secrets are allowed in any other file in the repository. A violation results in a score of 0.</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🚫 The Rule: No Passwords in Dockerfiles</h4>
+                            <p>It is mandatory to use environment variables. No password must be present in your Dockerfiles.</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🙈 The Rule: Git Ignore</h4>
+                            <p>For obvious security reasons, any credentials... must be saved locally in an env file and ignored by git.</p>
+                        </div>
+                        
+                        <div class="warning">
+                            <h4>⚠️ The ULTIMATE Mistake to Avoid</h4>
+                            <p>Committing your `.env` file to your public Git repository is an <strong>AUTOMATIC, NON-NEGOTIABLE 0</strong> on the project. Double-check, triple-check, and ask a friend to check your repository to ensure it's not there before evaluation.</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🎯 Action Plan</h4>
+                            <p>Before submitting, run these commands:</p>
+                            <div class="code-block">
+                                <pre># Check if .gitignore is tracking files correctly
+git status
+
+# Search your entire project for any hardcoded passwords (should return nothing)
+grep -r "password" .
+grep -r "your_actual_password" .
+
+# Go to your repository on the web and manually check that srcs/.env is NOT visible.
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-card" id="day9">
+            <div class="day-header">
+                <div class="day-number">Day 9</div>
+                <div class="day-title">Testing & Persistence Validation</div>
+                <div class="objective">
+                    <h3>Objective:</h3>
+                    <p>Rigorously test every aspect of the project, especially data persistence after a full reboot</p>
+                </div>
+            </div>
+            <div class="day-content">
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🧠</span>
+                        <h2 class="section-title">The Concept: The Reboot Test</h2>
+                    </div>
+                    
+                    <div class="concept-explanation">
+                        <h3>Why is the Reboot Test So Important?</h3>
+                        <p>The core promise of using Docker volumes is *persistence*. This means your data (WordPress files and database) is stored safely on the host machine, completely separate from the temporary containers. A full system reboot is the ultimate test of this separation. If your site comes back online with all its data intact after a reboot, you've proven your volumes are configured correctly.</p>
+                        
+                        <div class="analogy">
+                            <h4>🧠 The Brain in a Jar Analogy</h4>
+                            <p><strong>Your Containers (Nginx, WordPress, MariaDB)</strong> = Interchangeable robot bodies. They can be destroyed, upgraded, or replaced at any time.</p>
+                            <p><strong>Your Docker Volumes (`/home/login/data`)</strong> = The brain in a jar, connected to the robot body. The brain contains all the memories, personality, and knowledge (your data). If the robot body is destroyed (`make fclean`), the brain is safely unplugged. You can then plug this same brain into a brand new robot body (`make up`), and it will function exactly as before, with all its memories intact. The reboot test is like cutting the power to the whole lab and turning it back on; the brain should just wake up in its new body as if nothing happened.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🛠️</span>
+                        <h2 class="section-title">The Practical: The Ultimate Test Checklist</h2>
+                    </div>
+                    
+                    <div class="practical-section">
+                        <h3>Follow this checklist EXACTLY before submission.</h3>
+                        
+                        <ol class="step-list">
+                            <li>
+                                <strong>Start from Zero</strong>
+                                <div class="command">make fclean</div>
+                                <p>This ensures there are no lingering old containers or volumes to interfere.</p>
+                            </li>
+                            
+                            <li>
+                                <strong>First Launch</strong>
+                                <div class="command">make</div>
+                                <p>Wait for all services to build and start. This might take a few minutes the first time as the setup scripts run.</p>
+                            </li>
+                            
+                            <li>
+                                <strong>Verify the Site</strong>
+                                <p>Open your browser and go to <code>https://yourlogin.42.fr</code>. You should see the default WordPress site. (You'll have to accept the self-signed certificate warning).</p>
+                            </li>
+
+                            <li>
+                                <strong>Make a Change</strong>
+                                <p>Log in to the WordPress admin panel at <code>https://yourlogin.42.fr/wp-admin</code> with the credentials from your `.env` file. Create a new post with a unique title like "Testing Persistence". Publish it and view it on the main site.</p>
+                            </li>
+                            
+                            <li>
+                                <strong>Test Container Restart</strong>
+                                <div class="command">make down</div>
+                                <div class="command">make up</div>
+                                <p>Refresh your browser. The "Testing Persistence" post MUST still be there. This proves your `docker-compose` volumes work.</p>
+                            </li>
+
+                            <li>
+                                <strong>The REAL Test: VM Reboot</strong>
+                                <div class="command">sudo reboot</div>
+                                <p>Wait for your virtual machine to completely restart.</p>
+                            </li>
+
+                            <li>
+                                <strong>Post-Reboot Launch</strong>
+                                <p>Open a new terminal, navigate back to your `inception` project directory.</p>
+                                <div class="command">cd /path/to/your/inception</div>
+                                <div class="command">make up</div>
+                                <p>This command should be much faster as the images are already built and the data already exists.</p>
+                            </li>
+
+                            <li>
+                                <strong>Final Verification</strong>
+                                <p>Refresh your browser at <code>https://yourlogin.42.fr</code> one last time. The "Testing Persistence" post MUST still be there. If it is, your project is persistent and passes the requirement.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">✅</span>
+                        <h2 class="section-title">Evaluation Compliance</h2>
+                    </div>
+                    
+                    <div class="evaluation-section">
+                        <div class="rule-box">
+                            <h4>💾 The Rule: Persistence</h4>
+                            <p>After a full virtual machine reboot, running `docker-compose up` must restore the entire site with all previous data intact.</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🔄 The Rule: Restart Policy</h4>
+                            <p>Your containers have to restart in case of a crash. (Our `restart: on-failure` policy in `docker-compose.yml` handles this).</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🎯 Action Plan</h4>
+                            <p>The persistence test is not just a suggestion; it's a core part of the evaluation. The checklist above is your action plan. If your site does not survive the reboot, the most common error is an incorrect volume mapping in `docker-compose.yml`.</p>
+                            <p>Check this section carefully:</p>
+                            <div class="code-block">
+                                <pre>volumes:
+  wp-volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/${USER}/data/wordpress  # &lt;-- Must be the correct path on your VM
+
+  db-volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/${USER}/data/mariadb   # &lt;-- Must be the correct path on your VM
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-card" id="day10">
+            <div class="day-header">
+                <div class="day-number">Day 10</div>
+                <div class="day-title">Evaluation Prep & The Bonus Part</div>
+                <div class="objective">
+                    <h3>Objective:</h3>
+                    <p>Perform final checks, prepare to defend your project, and understand how to approach the bonus section</p>
+                </div>
+            </div>
+            <div class="day-content">
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🧠</span>
+                        <h2 class="section-title">The Concept: The Defense</h2>
+                    </div>
+                    
+                    <div class="concept-explanation">
+                        <h3>It's Not a Demo, It's a Defense</h3>
+                        <p>The final evaluation isn't just about showing that your project works. It's about proving you *understand* it. You will be asked to explain your choices, the data flow, and the core concepts. Be prepared to justify every line of code.</p>
+                        
+                        <div class="analogy">
+                            <h4>🎓 The Thesis Defense Analogy</h4>
+                            <p>You've written your thesis (your code). Now you stand before a panel of professors (your evaluator) who will grill you on it. They will ask "Why did you choose this method?", "Explain this concept in your own words," and "What would happen if we changed this?". Simply reading from your thesis won't work; you need to have internalized the knowledge.</p>
+                        </div>
+                        
+                        <h4>Key Questions to Prepare For:</h4>
+                        <ul>
+                            <li>What is the difference between a Docker container and a VM?</li>
+                            <li>Explain the purpose of each service (Nginx, WordPress, MariaDB).</li>
+                            <li>Trace a user's request from their browser all the way to the database and back.</li>
+                            <li>Why is it important to not use `network_mode: host`?</li>
+                            <li>Why are infinite loops like `tail -f` forbidden in a `CMD`? (Answer: They mask the true state of the application. The container process should be the application process itself, so if the app crashes, the container stops).</li>
+                            <li>What is the role of the `.env` file? Why is it critical for security?</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🛠️</span>
+                        <h2 class="section-title">The Practical: Final Checks & Bonus</h2>
+                    </div>
+                    
+                    <div class="practical-section">
+                        <h3>Final Pre-Submission Checklist</h3>
+                        <ol class="step-list">
+                            <li><strong>Git Repository:</strong> Is your `.env` file ABSENT from your public repo?</li>
+                            <li><strong>File Structure:</strong> Is `Makefile` at the root? Is everything else in `srcs/`?</li>
+                            <li><strong>Makefile:</strong> Does `make fclean` work perfectly? Does `make` bring the whole site up?</li>
+                            <li><strong>Networking:</strong> Is port 80 blocked? Is only port 443 accessible? Did you use a custom bridge network?</li>
+                            <li><strong>Usernames:</strong> Is your admin user name free of "admin"?</li>
+                            <li><strong>Persistence:</strong> Did you pass the reboot test?</li>
+                            <li><strong>Dockerfile Rules:</strong> Are you building from Debian/Alpine? No `latest` tag? No `tail -f` hacks?</li>
+                        </ol>
+
+                        <h3>Approaching the Bonus Part</h3>
+                        <p>The bonus part should only be attempted if your mandatory part is FLAWLESS.</p>
+                        <div class="warning">
+                            <h4>⚠️ Rule of Thumb</h4>
+                            <p>A mediocre bonus on top of a broken mandatory part is worth less than a perfect mandatory part alone. Secure your 100 first!</p>
+                        </div>
+                        <p>To add a bonus service like Redis:</p>
+                        <ol>
+                            <li><strong>Add a new service</strong> to `srcs/docker-compose.yml` named `redis`.</li>
+                            <li><strong>Create a new directory</strong> `srcs/requirements/redis/`.</li>
+                            <li><strong>Create a `Dockerfile`</strong> inside it, e.g., `FROM alpine`, `RUN apk add redis`, `CMD ["redis-server"]`.</li>
+                            <li><strong>Connect it</strong> to your `inception` network in the compose file.</li>
+                            <li><strong>Modify WordPress</strong> to use it: you'd typically install a Redis plugin in WordPress and configure `wp-config.php` with the Redis host (`redis`) and port.</li>
+                        </ol>
+                        <p>The logic is the same for any other bonus service: new container, new Dockerfile, new service definition, connect via the network.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">✅</span>
+                        <h2 class="section-title">Evaluation Compliance</h2>
+                    </div>
+                    
+                    <div class="evaluation-section">
+                        <div class="rule-box">
+                            <h4>🏆 The Rule: Bonus Assessment</h4>
+                            <p>The bonus part will only be assessed if the mandatory part is PERFECT. Perfect means the mandatory part has been integrally done and works without malfunctioning.</p>
+                        </div>
+                        
+                        <div class="rule-box">
+                            <h4>🎯 Action Plan</h4>
+                            <p>Focus 95% of your energy on making the mandatory part unbreakable. Treat the bonus as a victory lap, not a requirement. During the defense, if you did a bonus, be ready to justify *why* that service is useful (e.g., "I added Redis to implement object caching, which reduces database load and speeds up page delivery for logged-in users.").</p>
+                            <p><strong>Good luck, you've got this!</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="scroll-to-top" id="scrollToTopBtn">⬆️</button>
+
+    <script>
+        function scrollToDay(day) {
+            const element = document.getElementById('day' + day);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        };
+
+        scrollToTopBtn.onclick = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    </script>
+</body>
+</html>
