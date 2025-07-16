@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacMacSystemFont, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             color: #333;
@@ -429,7 +429,7 @@
     <div class="container">
         <div class="header">
             <h1>🚀 The Ultimate 42 Inception Project Guide</h1>
-            <p>From Zero to Hero: Master Docker, Nginx, and Database Administration in 10 Days</p>
+            <p>From Zero to Hero: Master Docker, Nginx, and Database Administration in 15 Days</p>
             <div class="principles">
                 <div class="principle">
                     <h3>🎯 Assume Zero Knowledge</h3>
@@ -480,7 +480,7 @@
         </div>
 
         <div class="toc">
-            <h2>📋 10-Day Curriculum Overview</h2>
+            <h2>📋 15-Day Curriculum Overview</h2>
             <div class="toc-grid">
                 <div class="toc-item" onclick="scrollToDay(1)">
                     <h3>Day 1: Foundation</h3>
@@ -521,6 +521,26 @@
                 <div class="toc-item" onclick="scrollToDay(10)">
                     <h3>Day 10: Evaluation</h3>
                     <p>Final checks, common mistakes, presentation tips</p>
+                </div>
+                <div class="toc-item" onclick="scrollToDay(11)">
+                    <h3>Day 11: Advanced Nginx</h3>
+                    <p>Caching, rate limiting, security headers</p>
+                </div>
+                <div class="toc-item" onclick="scrollToDay(12)">
+                    <h3>Day 12: Database Management</h3>
+                    <p>Backups, restoration, performance tuning</p>
+                </div>
+                <div class="toc-item" onclick="scrollToDay(13)">
+                    <h3>Day 13: WordPress Optimization</h3>
+                    <p>Redis caching, object caching, image optimization</p>
+                </div>
+                <div class="toc-item" onclick="scrollToDay(14)">
+                    <h3>Day 14: Security Hardening</h3>
+                    <p>A deep dive into securing all components</p>
+                </div>
+                <div class="toc-item" onclick="scrollToDay(15)">
+                    <h3>Day 15: Monitoring & Logging</h3>
+                    <p>Health checks, performance metrics, log analysis</p>
                 </div>
             </div>
         </div>
@@ -2000,39 +2020,35 @@ logs:
                     
                     <div class="evaluation-section">
                         <div class="rule-box">
-                            <h4>🏗️ The Rule: File Structure</h4>
-                            <p>The Makefile MUST be at the root of the project directory.</p>
+                            <h4>📁 The Rule: Makefile at Root</h4>
+                            <p>The Makefile must be at the root of the repository and must call your `docker-compose.yml` file.</p>
                         </div>
                         
                         <div class="rule-box">
-                            <h4>🚀 The Rule: Makefile Execution</h4>
-                            <p>The Makefile must set up the entire application, which means it has to call your `docker-compose.yml` file.</p>
-                        </div>
-                        
-                        <div class="rule-box">
-                            <h4>🧹 The Rule: Clean Restart</h4>
-                            <p>The project must work perfectly after running a full cleanup. Your `fclean` rule is designed to simulate the evaluator's own cleanup script.</p>
+                            <h4>🚀 The Rule: Single Command Setup</h4>
+                            <p>The Makefile must set up the entire application with a single command (`make` or `make all`).</p>
                         </div>
                         
                         <div class="warning">
                             <h4>⚠️ Common Mistakes to Avoid</h4>
                             <ul>
-                                <li>Placing the Makefile inside the `srcs/` directory.</li>
-                                <li>Hardcoding paths or commands instead of using variables.</li>
-                                <li>Having an `fclean` rule that doesn't completely clean everything (especially the host volume directories).</li>
+                                <li>Placing the Makefile in the `srcs` directory.</li>
+                                <li>Hardcoding paths in the Makefile instead of using variables.</li>
+                                <li>Not having a proper `fclean` rule that completely purges the system. This is essential for evaluators.</li>
                             </ul>
                         </div>
                         
                         <div class="rule-box">
                             <h4>🎯 Action Plan</h4>
-                            <p>Your directory structure must be correct:</p>
-                            <div class="code-block">
-                                <pre>inception/
-├── Makefile  &lt;-- HERE
-└── srcs/
-    └── docker-compose.yml</pre>
-                            </div>
-                            <p>The provided Makefile code satisfies all requirements. The `@` symbol before commands simply prevents `make` from printing the command itself to the terminal, making the output cleaner.</p>
+                            <p>Your Makefile is the entrypoint for the evaluator. Test it thoroughly:</p>
+                            <ol>
+                                <li>Run `make fclean`.</li>
+                                <li>Check that `docker ps -a`, `docker images`, `docker volume ls`, `docker network ls` are all empty (or close to it).</li>
+                                <li>Check that `/home/login/data/wordpress` and `/home/login/data/mariadb` are empty.</li>
+                                <li>Run `make`.</li>
+                                <li>Wait a minute for services to initialize.</li>
+                                <li>Access `https://login.42.fr` in your browser. It should work perfectly.</li>
+                            </ol>
                         </div>
                     </div>
                 </div>
@@ -2042,36 +2058,27 @@ logs:
         <div class="day-card" id="day8">
             <div class="day-header">
                 <div class="day-number">Day 8</div>
-                <div class="day-title">Security & Secrets Management</div>
+                <div class="day-title">Security Deep Dive</div>
                 <div class="objective">
                     <h3>Objective:</h3>
-                    <p>Secure the application by properly managing all secrets and credentials using a .env file</p>
+                    <p>Understand and implement critical security practices, focusing on environment variables and secrets management</p>
                 </div>
             </div>
             <div class="day-content">
                 <div class="section">
                     <div class="section-header">
                         <span class="section-icon">🧠</span>
-                        <h2 class="section-title">The Concept: .env as a Safe Deposit Box</h2>
+                        <h2 class="section-title">The Concept: Never Trust, Always Verify</h2>
                     </div>
                     
                     <div class="concept-explanation">
-                        <h3>What is a .env file?</h3>
-                        <p>A `.env` file is a simple text file used to store environment-specific variables, such as database passwords, API keys, or other secrets. Docker Compose can automatically read this file and make the variables available to your containers, without you ever having to write the secrets directly into your configuration files.</p>
+                        <h3>Why is Security So Important?</h3>
+                        <p>In the real world, a single leaked password can lead to catastrophic data breaches. This project forces you to adopt the #1 rule of modern development: **never hardcode secrets**. Secrets (passwords, API keys) must be separated from code.</p>
                         
                         <div class="analogy">
-                            <h4>🏦 The Safe Deposit Box Analogy</h4>
-                            <p><strong>Your Code (docker-compose.yml, Dockerfiles)</strong> = The public blueprint for a bank vault. Anyone can see it, and it shows the structure, but it doesn't contain the combination.</p>
-                            <p><strong>The `.env` file</strong> = A private, sealed envelope containing the secret combination to the vault. This envelope is kept in a secure location (your local machine) and is NEVER shared publicly (committed to Git).</p>
-                            <p><strong>Docker Compose</strong> = The bank manager. When you ask them to open the vault (`make up`), they privately take the combination from the sealed envelope (`.env`) and use it to configure the vault's lock (your containers' environment variables). The blueprint itself remains unchanged and public.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="best-resource">
-                        <h4>🎯 Best Resource for Theory</h4>
-                        <div class="resource-link">
-                            <a href="https://docs.docker.com/compose/environment-variables/" target="_blank">Docker Compose Environment Variables Guide</a>
-                            <p><strong>Why it's best:</strong> This official documentation clearly explains the different ways to handle environment variables in Compose, with a specific focus on using `.env` files. It's the definitive guide.</p>
+                            <h4>🔑 The House Key Analogy</h4>
+                            <p><strong>Hardcoding a password in a Dockerfile</strong> is like engraving your house key with your home address and then leaving it on a park bench. Anyone who finds it knows exactly where to go and how to get in.</p>
+                            <p><strong>Using a `.env` file</strong> is like keeping your key in your pocket. The key (password) is with you, but it's not attached to the house (the code). You can change your locks (passwords) without rebuilding your house (rebuilding the image).</p>
                         </div>
                     </div>
                 </div>
@@ -2079,73 +2086,55 @@ logs:
                 <div class="section">
                     <div class="section-header">
                         <span class="section-icon">🛠️</span>
-                        <h2 class="section-title">The Practical: Implementing Secure Secrets</h2>
+                        <h2 class="section-title">The Practical: Implementing `.env`</h2>
                     </div>
                     
                     <div class="practical-section">
-                        <h3>Finalizing Your .env and .gitignore</h3>
+                        <h3>How Docker Compose and `.env` Work</h3>
+                        <p>When you run `docker-compose up`, it automatically looks for a file named `.env` in the same directory. It loads the variables from this file and makes them available to the `docker-compose.yml` file.</p>
                         
                         <ol class="step-list">
                             <li>
-                                <strong>Review your `srcs/docker-compose.yml`</strong>
-                                <p>Notice how all sensitive values are replaced with `${VARIABLE_NAME}`. This tells Docker Compose to look for that variable.</p>
+                                <strong>Your `.env` file (in `srcs/`)</strong>
                                 <div class="code-block">
-                                    <pre>  mariadb:
+                                    <pre># This file should be in .gitignore!
+DB_USER=wpuser
+DB_PASS=a_very_secure_password
+DB_ROOT_PASS=another_secure_password
+...</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Your `docker-compose.yml` (in `srcs/`)</strong>
+                                <div class="code-block">
+                                    <pre>services:
+  mariadb:
     ...
     environment:
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASS}
-      MYSQL_DATABASE: ${DB_NAME}
+      # Docker Compose replaces ${DB_USER} with "wpuser" from the .env file
       MYSQL_USER: ${DB_USER}
       MYSQL_PASSWORD: ${DB_PASS}
-  
-  wordpress:
-    ...
-    environment:
-      WORDPRESS_DB_HOST: mariadb
-      WORDPRESS_DB_NAME: ${DB_NAME}
-      WORDPRESS_DB_USER: ${DB_USER}
-      WORDPRESS_DB_PASSWORD: ${DB_PASS}
-</pre>
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASS}
+      ...</pre>
                                 </div>
                             </li>
                             
                             <li>
-                                <strong>Review your `srcs/.env` file</strong>
-                                <p>This is where the actual values are stored. Docker Compose automatically finds and reads this file if it's in the same directory or a parent directory.</p>
+                                <strong>Your `.gitignore` (at the project root)</strong>
+                                <p>This is the most critical step. You must tell Git to ignore your secrets file.</p>
                                 <div class="code-block">
-                                    <pre># File: srcs/.env
-# --- IMPORTANT ---
-# This file should NEVER be committed to Git.
-
-DB_NAME=wordpress
-DB_USER=site_manager
-DB_PASS=a_very_secure_and_random_password
-DB_ROOT_PASS=another_super_secret_password
-
-WP_ADMIN_USER=the_owner
-# etc...
-</pre>
-                                </div>
-                            </li>
-                            
-                            <li>
-                                <strong>Create a `.gitignore` file</strong>
-                                <p>This is the most critical step to prevent accidentally publishing your secrets. Create a file named `.gitignore` at the ROOT of your project (`inception/.gitignore`).</p>
-                                <div class="code-block">
-                                    <pre># File: .gitignore
-
-# Ignore the environment file containing secrets
+                                    <pre># Ignore the file with all our secrets
 srcs/.env
 
-# Ignore host data directories
-data/
+# Ignore local data directories
+/data/
 
-# You can also add other common ignore patterns
-*.log
-.DS_Store
-</pre>
+# Other common ignores
+*.swo
+*.swp
+.DS_Store</pre>
                                 </div>
-                                <p>Now, `git` will completely ignore your `.env` file, keeping your secrets safe on your local machine.</p>
                             </li>
                         </ol>
                     </div>
@@ -2159,39 +2148,22 @@ data/
                     
                     <div class="evaluation-section">
                         <div class="rule-box">
-                            <h4>🔒 The Rule: Secrets Management</h4>
-                            <p>ALL credentials, API keys, and environment variables MUST be in a .env file. No secrets are allowed in any other file in the repository. A violation results in a score of 0.</p>
+                            <h4>🔒 The Rule: No Passwords in Dockerfiles</h4>
+                            <p>No password must be present in your Dockerfiles. It is mandatory to use environment variables.</p>
                         </div>
                         
                         <div class="rule-box">
-                            <h4>🚫 The Rule: No Passwords in Dockerfiles</h4>
-                            <p>It is mandatory to use environment variables. No password must be present in your Dockerfiles.</p>
-                        </div>
-                        
-                        <div class="rule-box">
-                            <h4>🙈 The Rule: Git Ignore</h4>
-                            <p>For obvious security reasons, any credentials... must be saved locally in an env file and ignored by git.</p>
+                            <h4>🔑 The Rule: Use a `.env` file</h4>
+                            <p>It is strongly recommended to use a `.env` file to store environment variables. The `.env` file should be located at the root of the `srcs` directory.</p>
                         </div>
                         
                         <div class="warning">
-                            <h4>⚠️ The ULTIMATE Mistake to Avoid</h4>
-                            <p>Committing your `.env` file to your public Git repository is an <strong>AUTOMATIC, NON-NEGOTIABLE 0</strong> on the project. Double-check, triple-check, and ask a friend to check your repository to ensure it's not there before evaluation.</p>
-                        </div>
-                        
-                        <div class="rule-box">
-                            <h4>🎯 Action Plan</h4>
-                            <p>Before submitting, run these commands:</p>
-                            <div class="code-block">
-                                <pre># Check if .gitignore is tracking files correctly
-git status
-
-# Search your entire project for any hardcoded passwords (should return nothing)
-grep -r "password" .
-grep -r "your_actual_password" .
-
-# Go to your repository on the web and manually check that srcs/.env is NOT visible.
-</pre>
-                            </div>
+                            <h4>⚠️ Common Mistakes to Avoid</h4>
+                            <ul>
+                                <li>Forgetting to add `srcs/.env` to your `.gitignore`. This is an instant failure.</li>
+                                <li>Leaving example passwords in your `docker-compose.yml` file instead of using variables.</li>
+                                <li>Committing the `.env` file to your Git repository.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -2201,131 +2173,89 @@ grep -r "your_actual_password" .
         <div class="day-card" id="day9">
             <div class="day-header">
                 <div class="day-number">Day 9</div>
-                <div class="day-title">Testing & Persistence Validation</div>
+                <div class="day-title">Final Testing & Debugging</div>
                 <div class="objective">
                     <h3>Objective:</h3>
-                    <p>Rigorously test every aspect of the project, especially data persistence after a full reboot</p>
+                    <p>Rigorously test every aspect of the project, learn to debug common issues, and ensure persistence works correctly</p>
                 </div>
             </div>
             <div class="day-content">
                 <div class="section">
                     <div class="section-header">
-                        <span class="section-icon">🧠</span>
-                        <h2 class="section-title">The Concept: The Reboot Test</h2>
+                        <span class="section-icon">🐛</span>
+                        <h2 class="section-title">The Debugging Toolkit</h2>
                     </div>
                     
                     <div class="concept-explanation">
-                        <h3>Why is the Reboot Test So Important?</h3>
-                        <p>The core promise of using Docker volumes is *persistence*. This means your data (WordPress files and database) is stored safely on the host machine, completely separate from the temporary containers. A full system reboot is the ultimate test of this separation. If your site comes back online with all its data intact after a reboot, you've proven your volumes are configured correctly.</p>
-                        
-                        <div class="analogy">
-                            <h4>🧠 The Brain in a Jar Analogy</h4>
-                            <p><strong>Your Containers (Nginx, WordPress, MariaDB)</strong> = Interchangeable robot bodies. They can be destroyed, upgraded, or replaced at any time.</p>
-                            <p><strong>Your Docker Volumes (`/home/login/data`)</strong> = The brain in a jar, connected to the robot body. The brain contains all the memories, personality, and knowledge (your data). If the robot body is destroyed (`make fclean`), the brain is safely unplugged. You can then plug this same brain into a brand new robot body (`make up`), and it will function exactly as before, with all its memories intact. The reboot test is like cutting the power to the whole lab and turning it back on; the brain should just wake up in its new body as if nothing happened.</p>
-                        </div>
+                        <h3>Essential Debugging Commands</h3>
+                        <ul>
+                            <li>
+                                <strong>`docker-compose logs -f [service_name]`</strong>
+                                <p>This is your #1 tool. It shows the live output of a container. If a container is crashing, this is the first place to look. Example: `docker-compose -f srcs/docker-compose.yml logs -f wordpress`.</p>
+                            </li>
+                            <li>
+                                <strong>`docker exec -it [container_name] bash`</strong>
+                                <p>This gives you a shell inside a running container. Invaluable for checking file permissions, network connectivity, and running commands inside the container's environment. Example: `docker exec -it mariadb bash`.</p>
+                            </li>
+                            <li>
+                                <strong>`docker inspect [container_name]`</strong>
+                                <p>Provides a huge amount of low-level information about a container, including its IP address on the Docker network, volume mounts, and environment variables.</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
                 <div class="section">
                     <div class="section-header">
-                        <span class="section-icon">🛠️</span>
-                        <h2 class="section-title">The Practical: The Ultimate Test Checklist</h2>
+                        <span class="section-icon">🧪</span>
+                        <h2 class="section-title">The Pre-Evaluation Checklist</h2>
                     </div>
                     
                     <div class="practical-section">
-                        <h3>Follow this checklist EXACTLY before submission.</h3>
+                        <h3>The Ultimate Test Plan</h3>
+                        <p>Run through this checklist EXACTLY. If any step fails, fix it and start again from step 1.</p>
                         
                         <ol class="step-list">
                             <li>
-                                <strong>Start from Zero</strong>
+                                <strong>The `fclean` Test</strong>
                                 <div class="command">make fclean</div>
-                                <p>This ensures there are no lingering old containers or volumes to interfere.</p>
+                                <p>Verify that everything is gone. No containers, no project-specific images, no volumes, no networks. The `/home/login/data` directories should be empty.</p>
                             </li>
                             
                             <li>
-                                <strong>First Launch</strong>
+                                <strong>The `make` Test</strong>
                                 <div class="command">make</div>
-                                <p>Wait for all services to build and start. This might take a few minutes the first time as the setup scripts run.</p>
+                                <p>Wait 1-2 minutes for all services to initialize. Check `docker ps` to ensure all three containers are up and running.</p>
                             </li>
                             
                             <li>
-                                <strong>Verify the Site</strong>
-                                <p>Open your browser and go to <code>https://yourlogin.42.fr</code>. You should see the default WordPress site. (You'll have to accept the self-signed certificate warning).</p>
-                            </li>
-
-                            <li>
-                                <strong>Make a Change</strong>
-                                <p>Log in to the WordPress admin panel at <code>https://yourlogin.42.fr/wp-admin</code> with the credentials from your `.env` file. Create a new post with a unique title like "Testing Persistence". Publish it and view it on the main site.</p>
+                                <strong>The Website Test</strong>
+                                <p>Open `https://yourlogin.42.fr` in your browser. The WordPress site should appear. You should NOT see the WordPress installation screen.</p>
                             </li>
                             
                             <li>
-                                <strong>Test Container Restart</strong>
+                                <strong>The Login Test</strong>
+                                <p>Log in to the WordPress admin dashboard at `https://yourlogin.42.fr/wp-admin` with the admin user and password from your `.env` file.</p>
+                            </li>
+                            
+                            <li>
+                                <strong>The Content Persistence Test</strong>
+                                <p>Create a new post in WordPress. Add some text and publish it. Visit your site to see the new post.</p>
+                            </li>
+                            
+                            <li>
+                                <strong>The Restart Test</strong>
                                 <div class="command">make down</div>
                                 <div class="command">make up</div>
-                                <p>Refresh your browser. The "Testing Persistence" post MUST still be there. This proves your `docker-compose` volumes work.</p>
+                                <p>Wait 30 seconds. Refresh your website. The post you created MUST still be there. This proves your database and WordPress files volumes are working correctly.</p>
                             </li>
-
+                            
                             <li>
-                                <strong>The REAL Test: VM Reboot</strong>
-                                <div class="command">sudo reboot</div>
-                                <p>Wait for your virtual machine to completely restart.</p>
-                            </li>
-
-                            <li>
-                                <strong>Post-Reboot Launch</strong>
-                                <p>Open a new terminal, navigate back to your `inception` project directory.</p>
-                                <div class="command">cd /path/to/your/inception</div>
-                                <div class="command">make up</div>
-                                <p>This command should be much faster as the images are already built and the data already exists.</p>
-                            </li>
-
-                            <li>
-                                <strong>Final Verification</strong>
-                                <p>Refresh your browser at <code>https://yourlogin.42.fr</code> one last time. The "Testing Persistence" post MUST still be there. If it is, your project is persistent and passes the requirement.</p>
+                                <strong>The Final `fclean`</strong>
+                                <div class="command">make fclean</div>
+                                <p>Leave your project in a clean state for the evaluator.</p>
                             </li>
                         </ol>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <div class="section-header">
-                        <span class="section-icon">✅</span>
-                        <h2 class="section-title">Evaluation Compliance</h2>
-                    </div>
-                    
-                    <div class="evaluation-section">
-                        <div class="rule-box">
-                            <h4>💾 The Rule: Persistence</h4>
-                            <p>After a full virtual machine reboot, running `docker-compose up` must restore the entire site with all previous data intact.</p>
-                        </div>
-                        
-                        <div class="rule-box">
-                            <h4>🔄 The Rule: Restart Policy</h4>
-                            <p>Your containers have to restart in case of a crash. (Our `restart: on-failure` policy in `docker-compose.yml` handles this).</p>
-                        </div>
-                        
-                        <div class="rule-box">
-                            <h4>🎯 Action Plan</h4>
-                            <p>The persistence test is not just a suggestion; it's a core part of the evaluation. The checklist above is your action plan. If your site does not survive the reboot, the most common error is an incorrect volume mapping in `docker-compose.yml`.</p>
-                            <p>Check this section carefully:</p>
-                            <div class="code-block">
-                                <pre>volumes:
-  wp-volume:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /home/${USER}/data/wordpress  # &lt;-- Must be the correct path on your VM
-
-  db-volume:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /home/${USER}/data/mariadb   # &lt;-- Must be the correct path on your VM
-</pre>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -2334,101 +2264,390 @@ grep -r "your_actual_password" .
         <div class="day-card" id="day10">
             <div class="day-header">
                 <div class="day-number">Day 10</div>
-                <div class="day-title">Evaluation Prep & The Bonus Part</div>
+                <div class="day-title">Evaluation & Bonus Prep</div>
                 <div class="objective">
                     <h3>Objective:</h3>
-                    <p>Perform final checks, prepare to defend your project, and understand how to approach the bonus section</p>
+                    <p>Understand the evaluation process, prepare for common questions, and plan your bonus part implementation</p>
                 </div>
             </div>
             <div class="day-content">
                 <div class="section">
                     <div class="section-header">
-                        <span class="section-icon">🧠</span>
-                        <h2 class="section-title">The Concept: The Defense</h2>
+                        <span class="section-icon">🏆</span>
+                        <h2 class="section-title">Passing the Evaluation</h2>
                     </div>
                     
-                    <div class="concept-explanation">
-                        <h3>It's Not a Demo, It's a Defense</h3>
-                        <p>The final evaluation isn't just about showing that your project works. It's about proving you *understand* it. You will be asked to explain your choices, the data flow, and the core concepts. Be prepared to justify every line of code.</p>
+                    <div class="evaluation-section">
+                        <h3>What to Expect</h3>
+                        <p>The evaluator will clone your repository, run `make`, and then test against the subject's requirements. They will be meticulous. They will check your `.gitignore`, your Dockerfiles, your `docker-compose.yml`, and your Makefile.</p>
                         
-                        <div class="analogy">
-                            <h4>🎓 The Thesis Defense Analogy</h4>
-                            <p>You've written your thesis (your code). Now you stand before a panel of professors (your evaluator) who will grill you on it. They will ask "Why did you choose this method?", "Explain this concept in your own words," and "What would happen if we changed this?". Simply reading from your thesis won't work; you need to have internalized the knowledge.</p>
-                        </div>
-                        
-                        <h4>Key Questions to Prepare For:</h4>
+                        <h3>Key Questions to Prepare For:</h3>
                         <ul>
-                            <li>What is the difference between a Docker container and a VM?</li>
-                            <li>Explain the purpose of each service (Nginx, WordPress, MariaDB).</li>
-                            <li>Trace a user's request from their browser all the way to the database and back.</li>
-                            <li>Why is it important to not use `network_mode: host`?</li>
-                            <li>Why are infinite loops like `tail -f` forbidden in a `CMD`? (Answer: They mask the true state of the application. The container process should be the application process itself, so if the app crashes, the container stops).</li>
-                            <li>What is the role of the `.env` file? Why is it critical for security?</li>
+                            <li>"Why did you choose Debian over Alpine?" (or vice-versa)</li>
+                            <li>"Explain what `CMD ["nginx", "-g", "daemon off;"]` does and why it's necessary."</li>
+                            <li>"How do your containers communicate with each other? Explain the networking."</li>
+                            <li>"Show me how you ensured data persistence. What happens if I stop and remove the containers?"</li>
+                            <li>"Where are your passwords stored? How did you prevent them from being in your repository?"</li>
+                            <li>"What is the difference between a volume and a bind mount? Which one are you using and why?"</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="section">
                     <div class="section-header">
-                        <span class="section-icon">🛠️</span>
-                        <h2 class="section-title">The Practical: Final Checks & Bonus</h2>
+                        <span class="section-icon">🌟</span>
+                        <h2 class="section-title">Tackling the Bonus Part</h2>
                     </div>
                     
                     <div class="practical-section">
-                        <h3>Final Pre-Submission Checklist</h3>
+                        <h3>Bonus Part Strategy</h3>
+                        <p>The bonus part will only be graded if the mandatory part is PERFECT. Do not attempt the bonus until you have passed your own pre-evaluation checklist multiple times.</p>
+                        
+                        <h4>Recommended Bonus: Redis Cache</h4>
+                        <p>This is the most practical and impressive bonus. It demonstrates a deeper understanding of web performance.</p>
+                        
                         <ol class="step-list">
-                            <li><strong>Git Repository:</strong> Is your `.env` file ABSENT from your public repo?</li>
-                            <li><strong>File Structure:</strong> Is `Makefile` at the root? Is everything else in `srcs/`?</li>
-                            <li><strong>Makefile:</strong> Does `make fclean` work perfectly? Does `make` bring the whole site up?</li>
-                            <li><strong>Networking:</strong> Is port 80 blocked? Is only port 443 accessible? Did you use a custom bridge network?</li>
-                            <li><strong>Usernames:</strong> Is your admin user name free of "admin"?</li>
-                            <li><strong>Persistence:</strong> Did you pass the reboot test?</li>
-                            <li><strong>Dockerfile Rules:</strong> Are you building from Debian/Alpine? No `latest` tag? No `tail -f` hacks?</li>
+                            <li>
+                                <strong>Add a Redis service to `docker-compose.yml`</strong>
+                                <div class="code-block">
+                                    <pre>  redis:
+    build: ./requirements/redis
+    container_name: redis
+    restart: on-failure
+    networks:
+      - inception</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Create a `redis/Dockerfile`</strong>
+                                <div class="code-block">
+                                    <pre>FROM alpine:3.17
+RUN apk update && apk add redis
+CMD ["redis-server"]</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Modify your WordPress setup</strong>
+                                <p>In your `wp_setup.sh`, after `wp core install`, add commands to install and activate the Redis Object Cache plugin:</p>
+                                <div class="code-block">
+                                    <pre>wp plugin install redis-cache --activate --allow-root
+wp redis enable --allow-root</pre>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <strong>Configure `wp-config.php`</strong>
+                                <p>Also in `wp_setup.sh`, add the necessary constants to `wp-config.php` to tell WordPress where to find Redis.</p>
+                                <div class="code-block">
+                                    <pre>wp config set WP_REDIS_HOST redis --allow-root
+wp config set WP_REDIS_PORT 6379 --allow-root</pre>
+                                </div>
+                            </li>
                         </ol>
-
-                        <h3>Approaching the Bonus Part</h3>
-                        <p>The bonus part should only be attempted if your mandatory part is FLAWLESS.</p>
-                        <div class="warning">
-                            <h4>⚠️ Rule of Thumb</h4>
-                            <p>A mediocre bonus on top of a broken mandatory part is worth less than a perfect mandatory part alone. Secure your 100 first!</p>
-                        </div>
-                        <p>To add a bonus service like Redis:</p>
-                        <ol>
-                            <li><strong>Add a new service</strong> to `srcs/docker-compose.yml` named `redis`.</li>
-                            <li><strong>Create a new directory</strong> `srcs/requirements/redis/`.</li>
-                            <li><strong>Create a `Dockerfile`</strong> inside it, e.g., `FROM alpine`, `RUN apk add redis`, `CMD ["redis-server"]`.</li>
-                            <li><strong>Connect it</strong> to your `inception` network in the compose file.</li>
-                            <li><strong>Modify WordPress</strong> to use it: you'd typically install a Redis plugin in WordPress and configure `wp-config.php` with the Redis host (`redis`) and port.</li>
-                        </ol>
-                        <p>The logic is the same for any other bonus service: new container, new Dockerfile, new service definition, connect via the network.</p>
                     </div>
                 </div>
+            </div>
+        </div>
 
+        <div class="day-card" id="day11">
+            <div class="day-header">
+                <div class="day-number">Day 11</div>
+                <div class="day-title">Advanced Nginx</div>
+                <div class="objective">
+                    <h3>Objective:</h3>
+                    <p>Enhance Nginx with caching, rate limiting, and stronger security headers</p>
+                </div>
+            </div>
+            <div class="day-content">
                 <div class="section">
                     <div class="section-header">
-                        <span class="section-icon">✅</span>
-                        <h2 class="section-title">Evaluation Compliance</h2>
+                        <span class="section-icon">🧠</span>
+                        <h2 class="section-title">The Concept: Nginx as a Performance Multiplier</h2>
                     </div>
-                    
-                    <div class="evaluation-section">
-                        <div class="rule-box">
-                            <h4>🏆 The Rule: Bonus Assessment</h4>
-                            <p>The bonus part will only be assessed if the mandatory part is PERFECT. Perfect means the mandatory part has been integrally done and works without malfunctioning.</p>
+                    <div class="concept-explanation">
+                        <h3>Beyond Reverse Proxying</h3>
+                        <p>A basic Nginx setup is great, but a production-grade server does more. It can cache frequently accessed content to reduce load on WordPress, and protect your application from simple denial-of-service attacks by limiting how many requests a single user can make.</p>
+                        <div class="analogy">
+                            <h4>🏦 The Bank Teller Analogy</h4>
+                            <p><strong>Basic Nginx:</strong> A bank teller who gets cash from the vault (WordPress/PHP-FPM) for every single customer.</p>
+                            <p><strong>Nginx with Caching:</strong> A teller who keeps a small amount of popular cash denominations ($20 bills) at their desk (the cache). For most customers, they can provide cash instantly without going to the vault. This is much faster.</p>
+                            <p><strong>Nginx with Rate Limiting:</strong> The same teller preventing a single person from making 100 tiny, separate withdrawal requests in a row and holding up the line. They might say, "You can make 5 requests per minute."</p>
                         </div>
-                        
-                        <div class="rule-box">
-                            <h4>🎯 Action Plan</h4>
-                            <p>Focus 95% of your energy on making the mandatory part unbreakable. Treat the bonus as a victory lap, not a requirement. During the defense, if you did a bonus, be ready to justify *why* that service is useful (e.g., "I added Redis to implement object caching, which reduces database load and speeds up page delivery for logged-in users.").</p>
-                            <p><strong>Good luck, you've got this!</strong></p>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🛠️</span>
+                        <h2 class="section-title">The Practical: Upgrading `nginx.conf`</h2>
+                    </div>
+                    <div class="practical-section">
+                        <h3>Adding Caching and Rate Limiting</h3>
+                        <p>Modify your <code>nginx.conf</code> to include these new directives. These are added at the top of the `http` block.</p>
+                        <div class="code-block">
+                            <pre>http {
+    # Rate Limiting: 10 requests/second, with a burst of 20
+    limit_req_zone $binary_remote_addr zone=mylimit:10m rate=10r/s;
+
+    # FastCGI Cache for PHP responses
+    fastcgi_cache_path /var/cache/nginx levels=1:2 keys_zone=WORDPRESS:100m inactive=60m;
+    fastcgi_cache_key "$scheme$request_method$host$request_uri";
+    ...
+}</pre>
+                        </div>
+                        <h3>Applying to the Server Block</h3>
+                        <p>Now, apply these zones inside your `server` block.</p>
+                        <div class="code-block">
+                            <pre>server {
+    ...
+    # Apply rate limiting to the whole site
+    limit_req zone=mylimit burst=20 nodelay;
+
+    location ~ \.php$ {
+        # Apply caching to PHP requests
+        fastcgi_cache WORDPRESS;
+        fastcgi_cache_valid 200 60m; # Cache successful responses for 60 minutes
+        fastcgi_cache_bypass $skip_cache;
+        fastcgi_no_cache $skip_cache;
+        add_header X-Cache-Status $upstream_cache_status;
+        ...
+    }
+    ...
+}</pre>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="day-card" id="day12">
+            <div class="day-header">
+                <div class="day-number">Day 12</div>
+                <div class="day-title">Advanced Database Management</div>
+                <div class="objective">
+                    <h3>Objective:</h3>
+                    <p>Learn to back up, restore, and tune your MariaDB database for better performance</p>
+                </div>
+            </div>
+            <div class="day-content">
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🧠</span>
+                        <h2 class="section-title">The Concept: The Database is Your Crown Jewel</h2>
+                    </div>
+                    <div class="concept-explanation">
+                        <h3>Protecting Your Data</h3>
+                        <p>Your WordPress files are just code; they can be replaced. Your database contains all your posts, users, and settings. If you lose it, you lose everything. Learning to back it up is not optional, it's a critical skill.</p>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🛠️</span>
+                        <h2 class="section-title">The Practical: Backup and Restore Scripts</h2>
+                    </div>
+                    <div class="practical-section">
+                        <h3>Creating a Backup</h3>
+                        <p>You can run this command from your host machine to create a compressed backup of your database.</p>
+                        <div class="command">docker exec mariadb mysqldump -u ${DB_USER} -p${DB_PASS} ${DB_NAME} | gzip > backup.sql.gz</div>
+                        
+                        <h3>Restoring from a Backup</h3>
+                        <p>To restore, you first need to import the backup into the container, then run the mysql client.</p>
+                        <div class="code-block">
+                            <pre># Copy backup file into the container
+docker cp backup.sql.gz mariadb:/tmp/backup.sql.gz
+
+# Decompress and restore the database
+docker exec mariadb sh -c "gunzip < /tmp/backup.sql.gz | mysql -u ${DB_USER} -p${DB_PASS} ${DB_NAME}"</pre>
+                        </div>
+                        <h3>Adding to the Makefile</h3>
+                        <p>Add these as new targets in your Makefile for easy access.</p>
+                        <div class="code-block">
+                            <pre>
+backup:
+	@docker exec mariadb mysqldump -u $${DB_USER} -p$${DB_PASS} $${DB_NAME} | gzip > backup.sql.gz
+	@echo "Database backup created at backup.sql.gz"
+
+restore:
+	@docker cp backup.sql.gz mariadb:/tmp/backup.sql.gz
+	@docker exec mariadb sh -c "gunzip < /tmp/backup.sql.gz | mysql -u $${DB_USER} -p$${DB_PASS} $${DB_NAME}"
+	@echo "Database restored from backup.sql.gz"
+</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-card" id="day13">
+            <div class="day-header">
+                <div class="day-number">Day 13</div>
+                <div class="day-title">WordPress Optimization with Redis</div>
+                <div class="objective">
+                    <h3>Objective:</h3>
+                    <p>Implement Redis for object caching to dramatically speed up your WordPress site, fulfilling a bonus requirement</p>
+                </div>
+            </div>
+            <div class="day-content">
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🧠</span>
+                        <h2 class="section-title">The Concept: Object Caching</h2>
+                    </div>
+                    <div class="concept-explanation">
+                        <h3>What is Object Caching?</h3>
+                        <p>Every time a page loads, WordPress makes many database queries for the same things (site options, theme settings, etc.). An object cache stores the results of these common queries in very fast memory (Redis). The next time the data is needed, it's pulled from Redis instead of the database, which is much faster.</p>
+                        <div class="analogy">
+                            <h4>🧠 The Short-Term Memory Analogy</h4>
+                            <p><strong>MariaDB:</strong> Your long-term memory. It holds everything, but it can be slow to recall specific, complex facts.</p>
+                            <p><strong>Redis (Object Cache):</strong> Your short-term, working memory. It holds the facts you need *right now* and can recall them instantly. You don't have to "think hard" (query the database) to remember your own name.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🛠️</span>
+                        <h2 class="section-title">The Practical: Integrating Redis</h2>
+                    </div>
+                    <div class="practical-section">
+                        <h3>This was covered in the Day 10 bonus section, but let's formalize it.</h3>
+                        <ol class="step-list">
+                            <li>
+                                <strong>Add Redis to `docker-compose.yml`</strong>
+                                <p>Add a new service for Redis and a Dockerfile for it.</p>
+                            </li>
+                            <li>
+                                <strong>Update WordPress Dockerfile</strong>
+                                <p>You need to install the `php-redis` extension. `RUN apt-get install -y php-redis`.</p>
+                            </li>
+                            <li>
+                                <strong>Update `wp_setup.sh`</strong>
+                                <p>Use `wp-cli` to install the "Redis Object Cache" plugin and configure `wp-config.php` to point to the `redis` container on port `6379`.</p>
+                            </li>
+                            <li>
+                                <strong>Verify it's working</strong>
+                                <p>In the WordPress admin dashboard, go to Settings -> Redis. You should see a green checkmark indicating it's connected.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-card" id="day14">
+            <div class="day-header">
+                <div class="day-number">Day 14</div>
+                <div class="day-title">Security Hardening</div>
+                <div class="objective">
+                    <h3>Objective:</h3>
+                    <p>Go beyond the basics to further secure every layer of your application stack</p>
+                </div>
+            </div>
+            <div class="day-content">
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🛡️</span>
+                        <h2 class="section-title">The Concept: Defense in Depth</h2>
+                    </div>
+                    <div class="concept-explanation">
+                        <h3>Layered Security</h3>
+                        <p>Security isn't a single action; it's a series of layers. If one layer is breached, another should stop the attack. We will add security measures to Nginx, WordPress, and the Docker environment itself.</p>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🛠️</span>
+                        <h2 class="section-title">The Practical: Hardening Checklist</h2>
+                    </div>
+                    <div class="practical-section">
+                        <ol class="step-list">
+                            <li>
+                                <strong>Read-Only Containers</strong>
+                                <p>In `docker-compose.yml`, you can make a container's filesystem read-only, except for the specific paths you mount as volumes. This prevents an attacker from writing malicious files.</p>
+                                <div class="code-block"><pre>
+  wordpress:
+    ...
+    read_only: true
+    volumes:
+      - wp-volume:/var/www/html
+    tmpfs:
+      - /tmp
+</pre></div>
+                            </li>
+                            <li>
+                                <strong>Disable XML-RPC in WordPress</strong>
+                                <p>This is a common attack vector. Add `add_filter('xmlrpc_enabled', '__return_false');` to your theme's `functions.php` or use a security plugin via `wp-cli`.</p>
+                            </li>
+                            <li>
+                                <strong>Stronger Nginx SSL Ciphers</strong>
+                                <p>Research and use a modern, secure cipher suite for your `ssl_ciphers` directive in `nginx.conf`.</p>
+                            </li>
+                            <li>
+                                <strong>Run as Non-Root User</strong>
+                                <p>In your Dockerfiles, create a non-root user and use the `USER` directive to run the application as that user. This limits the damage an attacker can do if they compromise the container.</p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-card" id="day15">
+            <div class="day-header">
+                <div class="day-number">Day 15</div>
+                <div class="day-title">Monitoring and Logging</div>
+                <div class="objective">
+                    <h3>Objective:</h3>
+                    <p>Learn how to monitor the health of your services and effectively manage logs</p>
+                </div>
+            </div>
+            <div class="day-content">
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🩺</span>
+                        <h2 class="section-title">The Concept: Know Your System's Health</h2>
+                    </div>
+                    <div class="concept-explanation">
+                        <h3>Are We Up or Down?</h3>
+                        <p>In a real application, you need to know if your services are running correctly. Docker Compose provides basic health checks that can automatically restart a container if it becomes unresponsive.</p>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🛠️</span>
+                        <h2 class="section-title">The Practical: Implementing Health Checks</h2>
+                    </div>
+                    <div class="practical-section">
+                        <h3>Adding Health Checks to `docker-compose.yml`</h3>
+                        <p>Modify your services to include a `healthcheck` section.</p>
+                        <div class="code-block">
+                            <pre>
+  wordpress:
+    ...
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/fpm-ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  mariadb:
+    ...
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+</pre>
+                        </div>
+                        <h3>Enabling the FPM Ping Endpoint</h3>
+                        <p>For the WordPress health check to work, you need to enable the ping endpoint in `www.conf` (for PHP-FPM) and add a location block in `nginx.conf` to allow access to it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-
     <button class="scroll-to-top" id="scrollToTopBtn">⬆️</button>
-
     <script>
         function scrollToDay(day) {
             const element = document.getElementById('day' + day);
@@ -2439,7 +2658,7 @@ grep -r "your_actual_password" .
 
         const scrollToTopBtn = document.getElementById('scrollToTopBtn');
         window.onscroll = function() {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
                 scrollToTopBtn.classList.add('show');
             } else {
                 scrollToTopBtn.classList.remove('show');
