@@ -1,17 +1,28 @@
-all:
-	@echo "Starting Inception..."
-	@docker compose -f srcs/docker-compose.yml up -d --build
 
-stop:
-	@echo "Stopping containers..."
-	@docker compose -f srcs/docker-compose.yml stop
+all: up
 
-clean: stop
-	@echo "Cleaning up..."
-	@docker compose -f srcs/docker-compose.yml down -v
+setup-dirs:
+	@mkdir -p /home/$(USER)/data/wordpress
+	@mkdir -p /home/$(USER)/data/mariadb
+
+build: setup-dirs
+	@docker compose -f srcs/docker-compose.yml build
+
+up: build
+	@docker compose -f srcs/docker-compose.yml up -d
+
+down:
+	@docker compose -f srcs/docker-compose.yml down
+
+restart: down up
+
+
+clean: down
+	@docker compose -f srcs/docker-compose.yml down -v --rmi all
+	@docker rmi -f $$(docker images -q) 
+
 
 fclean: clean
-	@echo "Full cleanup..."
-	@ docker system prune -af --volumes
+	@sudo rm -rf /home/$(USER)/data
 
-re: clean all
+re: fclean all

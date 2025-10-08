@@ -1,19 +1,17 @@
-FROM alpine:3.19
+FROM debian:bullseye
 
-
-RUN apk update && apk add --no-cache nginx openssl curl
-
+RUN apt-get update && apt-get install -y \
+    nginx \
+    openssl \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /etc/nginx/ssl
-
-
-RUN openssl req -x509 -days 365 -newkey rsa:2048 -nodes \
-    -out /etc/nginx/ssl/nginx.crt \
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
     -keyout /etc/nginx/ssl/nginx.key \
-    -subj "/C=MA/L=BG/O=1337/CN=oessaadi.42.fr"
+    -out /etc/nginx/ssl/nginx.crt \
+    -subj "/C=MA/ST=bg/L=bg/O=1337/CN=oessaadi.42.fr"
 
-
-COPY conf/nginx.conf /etc/nginx/nginx.conf
+COPY ./conf/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 443
 

@@ -1,17 +1,21 @@
 FROM debian:bullseye
 
-RUN apt-get update -y && \
-    apt-get install -y mariadb-server 
 
-COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
+RUN apt-get update && apt-get install -y \
+    mariadb-server \
+    mariadb-client \
+    && rm -rf /var/lib/apt/lists/*
 
-COPY ./tools/mariadb_script.sh /tmp/mariadb_script.sh
 
-RUN chmod +x /tmp/mariadb_script.sh
+RUN mkdir -p /run/mysqld
+RUN chown mysql:mysql /run/mysqld
 
-ENTRYPOINT ["/tmp/mariadb_script.sh"]
+COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
+COPY ./tools/init_db.sh /init_db.sh
 
-CMD ["mysqld_safe", "--user=mysql"]
+RUN chmod +x /init_db.sh
+
+CMD ["/init_db.sh"]
 
 
 
