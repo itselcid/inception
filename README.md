@@ -42,13 +42,6 @@ All services run in isolated Docker containers and communicate through a private
 - **Automated Setup** - WordPress installs and configures itself on first run
 - **Monitoring** - cAdvisor tracks container resource usage
 
-## Prerequisites
-
-- Docker Engine (20.10+)
-- Docker Compose (2.0+)
-- Linux system
-- 2GB RAM minimum
-- 10GB free disk space
 
 ## Installation
 
